@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Exercise 5.0 - Initials</string>
+    <string name="en_welcome">Welcome!</string>
+    <string name="en_random">Random number</string>
+    <string name="en_orientation">Orientation</string>
+    <string name="en_orientation_portrait">Portrait</string>
+    <string name="en_orientation_landscape">Landscape</string>
+</resources>

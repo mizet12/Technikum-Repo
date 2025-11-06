@@ -1,0 +1,23 @@
+#header, #footer {
+    font-family: Calibri;
+    background-color: yellow;
+    color: green;
+}
+
+main {
+    font-family: Calibri;
+    color: black;
+}
+
+h1 {
+    font-family: Consolas;
+    color: blue;
+}
+
+img {
+    width: 640px;
+}
+
+small {
+    font-family: "Times New Roman";
+}

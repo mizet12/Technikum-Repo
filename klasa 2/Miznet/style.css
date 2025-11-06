@@ -1,0 +1,142 @@
+html {
+    height: 100%;
+}
+body{
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: rgb(178,58,203);
+    background: linear-gradient(328deg, rgba(178,58,203,1) 0%, rgba(180,56,97,1) 100%);
+}
+#top{
+    margin: 40px;
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px;
+    display: flex;
+    margin-left: 300px;
+    margin-right: 300px;
+    text-decoration: none;    
+}
+#logo{
+    height: 139px;
+    width: 161px;
+}
+#menu{
+    margin-top: 20px;
+    font-size: 200%;
+ margin-left: 450px;
+}
+.a1{
+    text-decoration: none;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: blueviolet;
+}
+#main{
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: white;
+    border-radius: 25px;
+    height: 100%;
+    display: flex;
+}
+button{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: Comic Sans MS;
+    font-size: 107%;
+    color: #069;
+    cursor: pointer;
+  }
+#licz{
+    background-color: red;
+    border-radius: 100%;
+    width: 30px;
+    margin-top: -35px;
+    margin-left: 522px;
+    height: 30px;
+    text-align: center;
+    padding-bottom: 5px;
+    display: none;
+}
+.Produkt{
+    color: white;
+    background-color: rgb(42, 42, 42);
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
+    padding-top: 10px;
+    height: 450px;
+}
+hr{
+    opacity: 0;
+}
+#mangi{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+#koszyczek{
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border: 6px solid black;
+    margin-top: -1140px;
+    margin-left: 1455px;
+    z-index: 1;
+    position: relative;
+    border-radius: 20px;
+    display: none;
+    overflow: scroll;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: row;
+    
+}
+#karty{
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin-left: 909px;
+    margin-right: 909px;
+}
+.a{
+    text-decoration: none;
+    color: blueviolet;
+    display: flex;
+    border: 1px solid black;
+    padding: 1px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+#doplat{
+    display: flex;
+    text-decoration: none;
+    color: blueviolet;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+}
+#cena{
+    margin-top: 0px;
+    margin-right: 20px;
+}
+#divens{
+    width: 100%;
+    height: 100%;
+}

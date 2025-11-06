@@ -1,0 +1,46 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    Podejście klasyczne. Funkcja - konstruktor typu obiektowego.
+    
+    © Piotr Siewniak, wersja: 4.XI.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Obiekty w JavaScript. </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        // Definicja konstruktora obiektu typu Person:
+        function Student(imie, nazwisko, wiek) {
+            // Deklaracje właściwości:
+            this.imie = imie;
+            this.nazwisko = nazwisko;
+            this.wiek = wiek;
+            
+            // Definicja metody instancyjnej:
+            this.zwrocDane = function() { 
+                return (this.imie + " " + this.nazwisko + ", wiek: " + this.wiek);
+            }
+        }
+        
+        // Utworzenie obiektu typu Student i inicjacja jego właściwości:
+        const student = new Student("Piotr", "Siewniak", 50);
+        console.log('student: ', student);
+    
+        // Prezentacja wartości wybranych właściwości:
+        console.log("student.imie: ", student.imie);
+        console.log("student.nazwisko: ", student.nazwisko);
+        
+        // Prezentacja wartości wszystkich właściwości obiektu - wykorzystanie metody:
+        console.log('student.zwrocDane(): ', student.zwrocDane());
+
+        // Deklaracja i inicjalizacja właściwości plec obiektu student:
+        student.plec = 'm';
+        console.log("student.plec: ", student.plec);
+
+        console.log('student: ', student);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="16dp">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/timerInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Set timer start value" />
+
+    <Button
+        android:id="@+id/setTimerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Timer" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/countdownInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Set countdown start value" />
+
+    <Button
+        android:id="@+id/setCountdownButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Countdown" />
+</LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,100 @@
+﻿<!--ECMAScript 2015 (ES6). PROGRAMOWANIE OBIEKTOWE.
+    Hermetyzacja danych.
+    Wykorzystanie samodzielnie zdefiniowanych getterów i setterów.
+    
+    © Piotr Siewniak, wersja: 14.XI.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 6 - hermetyzacja (enkapsulacja). </title>
+    <meta charset="UTF-8">
+</head>
+<body>   
+    <script>
+        // Definicja klasy w postaci deklaracji:      
+        class Osoba  {  
+            // Definicja konstruktora:
+            constructor(imie, nazwisko) {
+                if (typeof(imie) == "string") this._imie = imie;
+                    else console.log("Błędna wartość danej imie");
+                if (typeof(nazwisko) == "string") this._nazwisko = nazwisko;
+                    else console.log("Błędna wartość danej nazwisko");
+            }
+
+            getImie = function() {
+                if (this._imie )
+                return this._imie;
+            }
+             // Definicja gettera dla właściwości "_nazwisko":
+            getNazwisko = function() {
+                return this._nazwisko;
+            }
+
+            setImie(value) {
+                if (typeof(value) == "string") this._imie = value;
+                    else console.log("Błędna wartość danej imie");
+            }
+            // Definicja settera dla właściwości "_nazwisko":
+            setNazwisko(value) {
+                if (typeof(value) == "string") this._nazwisko = value;
+                    else console.log("Błędna wartość danej nazwisko");
+            }
+        }
+
+        /* UWAGA
+            Gettery i settery zdefiniowane powyżej stanowią metody dostępowe pozwalające na uzyskanie dostępu
+            do właściwości obiektu w trybie get (pobierz) i w trybie set (zapisz/ustaw).
+        */
+
+        const imie1 = 5; // Celowo błędna wartość!
+        const nazwisko1 = "Siewniak";
+        
+        // Utworzenie obiektu osoba1, jako instancji klasy Osoba:
+        const osoba1 = new Osoba(imie1, nazwisko1);
+        /* UWAGA
+            Utworzenie nowego obiektu klasy Osoba jest połączone z jego inicjalizacją.
+
+            Tutaj:
+            wywołanie konstruktora z argumentami imie1 i nazwisko1 spowoduje
+            utworzenie obiektu osoba1 należącego do klasy Osoba, a następnie inicjację jego właściwości.
+          */
+
+        // Pobranie wartości z właściwości:
+        console.log("Imię: %s, nazwisko: %s",
+            osoba1.getImie(), // error!
+            osoba1.getNazwisko() // Siewniak
+        );
+        /* UWAGA
+            Powyżej:
+            pobranie wartości z właściwości nie zostało przeprowadzone poprzez bezpośrednie odwołanie się
+            do tych właściwości (osoba1._imie i osoba1._nazwisko), a za pośrednictwem jawnego wywołania getterów:
+            getImie() i getNazwisko().
+         */
+    
+        // Próba zmiany wartości właściwości _imie - jawne wywołanie settera:
+        osoba1.setImie(null); // wartość celowo nieprawidłowa
+        /* UWAGA
+            Powyżej:
+            nadanie wartości właściwości nie zostało przeprowadzone poprzez bezpośrednie odwołanie się
+            do tej właściwości (osoba1._imie), a za pośrednictwem jawnego wywołania settera setImie().
+         */
+
+        // Pobranie danych z właściwości - wywołanie getterów w sposób jawny:
+        console.log("Imię: %s, nazwisko: %s",
+            osoba1.getImie(), // error!
+            osoba1.getNazwisko() //Siewniak
+            ); 
+    
+        // Zmiana wartości właściwości _imie:
+        osoba1.setImie('Piotr'); // wartość prawidłowa
+        console.log("Imię: %s, nazwisko: %s", 
+            osoba1.getImie(), // error!
+            osoba1.getNazwisko() //Siewniak
+            ); 
+    </script>
+
+    <h1> JavaScript - gettery i settery </h1>
+    <h4 style="color: red;"> Uwaga! Przejdź do konsoli przeglądarki (F12) ... </h4>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!--JavaScript - PROGRAMOWANIE OBIEKTOWE.
+    Podejście klasyczne. Mechanizm dziedziczenia.
+    
+    © Piotr Siewniak, wersja: 16.II.2018 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 1: mechanizm dziedziczenia - podejście klasyczne. </title>
+    <meta charset="UTF-8">
+    <script>
+        // Definicja konstruktora typu obiektowego Pracownik:
+        function Pracownik(imie, nazwisko) {
+            // Definicje właściwości _imie oraz _nazwisko:
+            this._imie = imie;
+            this._nazwisko = nazwisko;
+
+            // Definicja instancyjnej metody dostępowej:
+            this.zwrocDanePracownika = function() {
+                return (this._imie + " " + this._nazwisko);
+            } 
+        }                                           
+    </script>
+</head>
+<body>   
+    <script>        
+        const nauczyciel1 = new Pracownik("Jan", "Kowalski");
+       
+        nauczyciel1._przedmiot = "matematyka";
+        
+        nauczyciel1.zwrocDaneNauczyciela = function() {
+            return (this._imie + " " + this._nazwisko + ", przedmiot: " + this._przedmiot);
+        }
+        /* UWAGA
+            Funkcjonalność obiektu nauczyciel1 została rozszerzona względem jego typu bazowego Pracownik
+            o dodatkowe elementy:
+            1) właściwość _przedmiot;
+            2) metodę instancyjną zwrocDaneNauczyciela().
+        */
+        // Wyświetlenie całej zawartości obiektu nauczyciel1:
+        console.log("nauczyciel1:", nauczyciel1);
+
+        // Wyświetlenie poszczególnych danych obiektu nauczyciel1:
+        console.log("nauczyciel1._imie: ", nauczyciel1._imie);
+        console.log("nauczyciel1._nazwisko: ", nauczyciel1._nazwisko);
+        console.log("nauczyciel1.zwrocDanePracownika(): ", nauczyciel1.zwrocDanePracownika());
+        console.log("nauczyciel1.zwrocDaneNauczyciela(): ", nauczyciel1.zwrocDaneNauczyciela());
+
+
+        // Utworzenie i inicjalizacja obiektu nauczyciel2 typu Pracownik:
+        const nauczyciel2 = new Pracownik("Adam", "Nowak");
+        console.log("nauczyciel2.zwrocDanePracownika(): %s\n", nauczyciel2.zwrocDanePracownika());
+
+        // Wyświetlenie całej zawartości obiektu nauczyciel2:
+        console.log("nauczyciel2: ", nauczyciel2);
+        /* UWAGA
+            Obiekt nauczyciel2 należy do typu bazowego Pracownik.
+            Jego funkcjonalność nie została rozszerzona o żadne dodatkowe elementy
+            względem typu bazowego Pracownik.
+         */
+    </script>
+
+    <h1> Programowanie obiektowe w JavaScripcie - podejście klasyczne </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>

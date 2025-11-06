@@ -1,0 +1,53 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE,
+    Podejście klasyczne. Enkapsulacja - metoda defineProperty().
+    
+    © Piotr Siewniak 2019, wersja: 19.XI.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> JavaScript - enkapsulacja </title>
+    <meta charset="UTF-8">
+</head>
+<body>   
+    <script>
+        // Definicja obiektu wzorcowego przy użyciu notacji literałowej:
+        const Auto = {
+            // Określenie właściwości:
+            _marka: '',
+            _model: '',
+            // Definicja metody:
+            zwrocDane: function () {
+            }
+        }
+
+        // Utworzenie obiektu na podstawie wzorca:
+        const auto1 = Object.create(Auto);
+
+        // Definicja właściwości obiektu auto1:
+        Object.defineProperty(auto1, '_marka', {
+            value: 'VW',
+            writable: true
+        });
+        Object.defineProperty(auto1, '_model', {
+            value: 'Golf',
+            writable: true
+        });
+        Object.defineProperty(auto1, 'zwrocDane', {
+            value: function () {
+                return (this._marka + " " + this._model);
+        },
+            writable: false
+        });
+
+
+        // Wykorzystanie właściwości i metod obiektu a1:
+        console.log("auto1._marka: ", auto1._marka);
+        console.log("auto1._model: ", auto1._model);
+        console.log("auto1.zwrocDane():", auto1.zwrocDane());
+    </script>
+
+    <h1> Programowanie obiektowe w JavaScripcie - podejście klasyczne </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>

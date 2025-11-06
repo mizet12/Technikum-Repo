@@ -1,0 +1,49 @@
+.EdycjaLekcji {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 12px;
+    background-color: #01000e;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+.EdycjaLekcji_input{
+    text-align: center;
+    border-radius: 10px;
+}
+
+button{
+    height: 30px;
+    margin: 5px;
+    width: 70px;
+    color: #ff3333;
+    background-color: #010041;
+    font-weight: normal;
+    transition: 0.5s ease-out;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input{
+    transition: 0.5s ease-out;
+    background-color: #02008b;
+    color: wheat;
+}
+input:hover{
+    box-shadow: 0 5px 15px rgb(0, 255, 255);
+}
+button:disabled:hover{
+    box-shadow: 0 5px 15px rgb(0, 255, 255);
+}
+button:hover{
+    box-shadow: 0 5px 15px #33D4FF;
+}
+button:disabled {
+    cursor: default;
+}
+
+.EdycjaLekcji_input input {
+    margin: 5px;
+}

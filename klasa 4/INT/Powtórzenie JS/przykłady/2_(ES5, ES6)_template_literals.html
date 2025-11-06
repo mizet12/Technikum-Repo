@@ -1,0 +1,66 @@
+﻿<!--ES5: wstawianie wartości liczbowych do łańcucha znaków - konkatenacja. 
+    ES6: template literals - interpolacja wyrażeń ${...} w literałach.
+
+    © Piotr Siewniak, wersja: 6.III.2018r.
+---->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ES5, ES6 - wyrażenia liczbowe w literałach </title>
+    <meta charset="UTF-8">
+</head>
+<body>                       
+    <script>               
+        const ilosc = 10;
+        const cenaJedn = 1.50;
+
+        function koszt(il, cena) {
+            return il * cena;
+        }                   
+        
+        // ES5:
+        var wynik1ES5 = "Łączny koszt zakupów: " + koszt(ilosc, cenaJedn); 
+        console.log("Wynik1ES5 = %s", wynik1ES5);
+        /* UWAGA
+         * Zmienna wynik1ES5 stanowi konkatenację (sumę) składników: 
+         * łańcuch (dana typu String) + liczba (dana typu Number)
+         */
+
+        // ES5: 
+        var wynik2ES5 = "Łączny koszt zakupów: " + (ilosc * cenaJedn); 
+        console.log("Wynik2ES5 = %s", wynik2ES5);
+        /* UWAGA
+         * Zmienna wynik2ES5 stanowi konkatenację (sumę) składników: 
+         * łańcuch (dana typu String) + liczba (dana typu Number)
+         */
+
+        // ES6:
+        const wynik1ES6 = `Łączny koszt zakupów: ${koszt(ilosc, cenaJedn)}`;
+        console.log("Wynik1ES6 = %s", wynik1ES6);
+        /* UWAGA 
+         * Zmienna wynik1ES6 stanowi literał szablonowy (template literal) składający się
+         * ze składnika w postaci łańcucha oraz wyrażenia ${...}.
+         * Konstrukcja ${...} pozwala na wstawienie (wstrzyknięcie) do łańcucha wartości
+         * określonego wyrażenia, np. wartości zmiennej, wartości funkcji itp.
+         * Mechanizm ten jest nazywany interpolacją wyrażenia.
+         */
+
+
+        // ES6:
+        const wynik2ES6 = `Łączny koszt zakupów: ${ilosc * cenaJedn}`;
+        console.log("Wynik2ES6: %s", wynik2ES6);
+        /* UWAGA
+         * Zmienna wynik2ES6 stanowi literał szablonowy (template literal).
+         * Wartość wyrażenia wynikowego jest obliczana bezpośrednio w bloku ${...}.
+         */
+
+
+        /* UWAGA
+         * Podsumowując, "template literal" może zawierać wiele linii oraz może interpolować wyrażenia.
+         * Interpolacja danego wyrażenia polega na wstawieniu do literału wartości tego wyrażenia
+         * w miejscu wystąpienia symbolu ${wyrażenie}.
+         */
+    </script>   
+</body>
+</html>
+

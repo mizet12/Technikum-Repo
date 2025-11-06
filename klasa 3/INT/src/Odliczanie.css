@@ -1,0 +1,37 @@
+#root, .odliczanie {
+    height: 100%;
+}
+
+.odliczanie {
+    display: flex;
+    align-items: center;
+    color: #ff3333;
+    background-color: #000542;
+    border: none;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 4px;
+    padding: 12px;
+}
+
+.X, .edit {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.Odliczanie_usuwanie {
+    display: flex;
+    margin-left: 8px;
+}
+
+.odliczanie:hover{
+    box-shadow: 0 5px 15px #33e0ff;
+    transition: 0.5s ease-out;
+
+}
+.odliczanie:hover .X, .odliczanie:hover .edit {
+    display: flex;
+}

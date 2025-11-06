@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Counter4F.Models"
+             x:Class="Counter4F.Views.CounterPage"
+             Title="CounterPage">
+    <ContentPage.BindingContext>
+        <models:Counter />
+    </ContentPage.BindingContext>
+    <Grid ColumnDefinitions="*,2*,*" ColumnSpacing="4" HeightRequest="100">
+            <Button Text="-" Clicked="MinusButton_Clicked" Grid.Column="0" BackgroundColor="Red" FontSize="100"/>
+            <Label x:Name="Idc" Grid.Column="1" Text="0" BackgroundColor="Gray" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button Text="+" Clicked="PlusButton_Clicked" Grid.Column="2" BackgroundColor="Green" FontSize="100"/>
+        </Grid>
+</ContentPage>

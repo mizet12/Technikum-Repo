@@ -1,0 +1,79 @@
+﻿<!--JavaScript ES6
+    Funkcje strzałkowe vs. konstruktory obiektów.
+    Funkcje strzałkowe vs. metody obiektów.
+
+    © Piotr Siewniak, wersja: 4.VIII.2021 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> JAVASCRIPT: FUNKCJE STRZAŁKOWE </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    /* UWAGA
+        1. Funkcje strzałkowe nie mogą pełnić roli konstruktorów obiektów (object constructors) !!!
+
+        2. Ponadto, funkcje strzałkowe nie powinny być używane jako metody dostępowe obiektów
+        (object access  methods), tj. metody korzystające z właściwości obiektów.
+        Wynika to z faktu, że funkcje te nie mają własnych powiązań (bindings) z this oraz super.
+
+        Dla przypomnienia:
+        Słowo kluczowe this w odniesieniu do metody oznacza obiekt, który jest jej "właścicielem" (owner object).
+        Słowo kluczowe super pozwala z kolei na wywołanie konstruktora klasy bazowej w klasie pochodnej
+        i uzyskanie dostępu do zdefiniowanych w klasie bazowej właściowści i metod.
+     */
+
+    // Definicja konstruktora Auto1():
+    function Auto1() {
+        this.marka = 'Volkswagen',
+        this.model = 'Golf',
+        this.wyswietlDane = function() {
+            console.log(this.marka, this.model);
+        }
+    }
+    /* UWAGA
+        Właścicielem metody wyswietlDane() jest obiekt stanowiący instancję klasy Auto1.
+    */
+
+    // Utworzenie obiektu auto1 za pomocą konstruktora Auto1():
+    const auto1 = new Auto1();
+    // Wywołanie metody wyswietlDane() obiektu auto1:
+    auto1.wyswietlDane(); // Volkswagen Golf
+
+    // Próba definicji konstruktora przy wykorzystaniu funkcji strzałkowej:
+    const Auto2 = () => {
+            this.marka = 'Volkswagen',
+            this.model = 'Jetta',
+            this.wyswietlDane = () => {console.log(this.marka, this.model);
+        };
+    }
+    
+    //let auto2 = new Auto2();
+    /* UWAGA
+        Powyższa instrukcja jest błędna, ponieważ funkcja strzałkowa nie może być konstruktorem!
+     */
+
+    // Definicja obiektu auto3 przy wykorzystaniu notacji literałowej:
+    const auto3 = {
+        marka: 'Volkswagen',
+        model: 'Passat',
+        // Próba definicji metody wyswietlDane() za pomocą funkcji strzałkowej:
+        wyswietlDane: () => {
+            console.log(this.marka, this.model);
+        },
+        /* UWAGA
+            Powyższa definicja metody wyswietlDane() jest nieprawidłowa!
+            Wynika to z faktu, że funkcje strzałkowe nie mają powiązań this z obiektem,
+            który jest jej właścicielem.
+        */
+        info() {
+            console.log("Komunikat zwrotny z obiektu auto3 ...");
+        }
+    }
+    auto3.wyswietlDane(); // undefined undefined
+    auto3.info();
+</script>
+</body>
+</html>

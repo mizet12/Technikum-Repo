@@ -1,0 +1,59 @@
+﻿<!--ECMAScript 2015 (ES6). Programowanie obiektowe. 
+    Klasy - metody (właściwości) prototypowe.
+    
+    © 2017-2019 Piotr Siewniak, wersja: 30.IX.2019 r. 
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 2015 (ES6) - metody prototypowe. </title>
+    <meta charset="UTF-8">
+
+    <script>
+        // Definicja klasy Kolo:
+        class Kolo  {               
+            // Deklaracja konstruktora:
+            constructor(r) {
+                // Deklaracja właściwości promien:
+                this.promien = r;
+            }
+            
+            // Deklarcje metod/właściwości prototypowych:
+            get pole() {
+                return this.obliczPole();
+            }
+            get obwod() {
+                return this.obliczObwod();
+            }             
+            /* UWAGA
+             * Implementacje metod prototypowych znajdują się w innym miejscu - poaz klasą.
+             */
+        }
+    </script>
+</head>
+<body>   
+    <script>
+        // Implementacje metod obliczPoleKolo() oraz obliczObwodKolo() w prototypie klasy Kolo:
+        Kolo.prototype.obliczObwod = function() {
+            return 2 * Math.PI * this.promien;
+        }
+        Kolo.prototype.obliczPole = function() {
+            return Math.PI * Math.pow(this.promien, 2);
+        }       
+                
+        // Utworzenie obiektu kolo jako instancji klasy Kolo:
+        var kolo = new Kolo(1);
+        
+        // Wykorzystanie właściwości promien:
+        console.log("Promień koła: %s", kolo.promien);
+        
+        // Wykorzystanie właściwości pole oraz obwod, 
+        // zaimplementowanych w prototypie klasy Kolo:
+        console.log("Pole koła: %s", kolo.pole);  
+        console.log("Obwód koła: %s", kolo.obwod);  
+    </script>
+
+    <h1> JavaScript - klasy </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>

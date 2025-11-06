@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\CSS\style.css">
+    <link rel="js" href="..\Skrypty\script.js">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header"><h2><p id="p"></p></h2></div>
+    <div id="main">
+        <div id="left">
+        Menu<table>
+            <tr>
+                <td><a href="..\Strona\index.html">Strona główna</a></td>
+                </tr><tr>
+                <td><a href="..\podstrony\grafika.html">grafika</a> </td>
+                </tr><tr>
+                <td><a href="..\podstrony\tabela.html">Tabela</a></td>
+            </tr>
+        </table></div>
+        <div id="middle">
+            <img src="..\grafiki\1.jpg" alt="1" id="aa">
+            <img src="..\grafiki\2.jpg" alt="2" id="bb">
+            <img src="..\grafiki\3.jpg" alt="3" id="cc"><br>
+            <img src="..\grafiki\4.jpg" alt="4" id="dd">
+            <img src="..\grafiki\5.jpg" alt="5" id="ee">
+            <img src="..\grafiki\6.jpg" alt="6" id="ff"><br>
+            <img src="..\grafiki\7.jpg" alt="7" id="gg">
+            <img src="..\grafiki\8.jpg" alt="8" id="hh">
+            <img src="..\grafiki\9.jpg" alt="9" id="ii"><br>
+            Podaj nazwe strony<input type="text" id="nowa"> <button onclick="zmien()">zmień</button><p id="uuu"></p>
+        </div>
+        <div id="right"></div>
+    </div>
+    <div id="footer"><p id="data"></p> <h2><p id="test">x: y:</p></h2></div>
+    <script>
+
+
+        const zdj = [7];
+        zdj[0]="..\grafiki\1.jpg";
+        zdj[1]="..\grafiki\2.jpg";
+        zdj[2]="..\grafiki\3.jpg";
+        zdj[3]="..\grafiki\4.jpg";
+        zdj[4]="..\grafiki\6.jpg";
+        zdj[5]="..\grafiki\7.jpg";
+        zdj[6]="..\grafiki\8.jpg";
+        zdj[7]="..\grafiki\9.jpg";
+
+        setInterval(ruch, 1000)
+
+
+        function ruch(){
+            let u = document.getElementById("uuu");
+
+            let a = 1;
+            let b = 2;
+            let c = 3;
+            let d = 4; 
+            let e = 6; 
+            let f = 7; 
+            let g = 8;
+            let h = 9;
+
+            document.getElementById("aa").innerHTML = zdj[a];
+            document.getElementById("bb").innerHTML = zdj[b];
+            document.getElementById("cc").innerHTML = zdj[c];
+            document.getElementById("dd").innerHTML = zdj[d];
+            document.getElementById("ff").innerHTML = zdj[e];
+            document.getElementById("gg").innerHTML = zdj[f];
+            document.getElementById("hh").innerHTML = zdj[g];
+            document.getElementById("ii").innerHTML = zdj[h];
+             
+            a++; b++; c++; d++; e++; f++; g++; h++;
+            if(a > 9){
+                a = 1
+            }
+            if(b > 9){
+                b = 1
+            }
+            if(c > 9){
+                c = 1
+            }
+            if(d > 9){
+                d = 1
+            }
+            if(e > 9){
+                e = 1
+            }
+            if(f > 9){
+                f = 1
+            }
+            if(g > 9){
+                g = 1
+            }
+            if(h > 9){
+                h = 1
+            }
+            //u.innerHTML = a + " " + b + " " + c + " " + d + " " + " "+ e +" "+f + " " +g +" "+ h;
+        }
+
+        
+
+
+
+        let p = document.getElementById("p");
+        p.innerHTML = "Nazwa";
+        let d = document.getElementById("data");
+        let t = document.getElementById("test");
+        const regex = /^([a-z]|[A-Z]|\#){2,}\w/;
+
+        function printMousePos(event) {
+  t.innerHTML =
+    " X: " + event.clientX +
+    "Y: " + event.clientY;
+}
+document.addEventListener("click", printMousePos);
+
+
+
+        setInterval(myTimer, 1000);
+
+        function myTimer() {
+            const date = new Date();
+            d.innerHTML = date;
+        }     
+        function zmien(){
+            let nowa = document.getElementById("nowa").value;
+            if(regex.test(nowa)){
+                p.innerHTML = nowa;
+            }
+            
+        }
+    </script>
+</body>
+</html>

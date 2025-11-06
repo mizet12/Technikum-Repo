@@ -1,0 +1,18 @@
+h1 {
+    font-family: Consolas;
+    color: blue;
+}
+#container {
+    background-color: lightblue;
+}
+#jelcz317 {
+    color: red;
+    font-weight: bold;
+}
+.li {
+    list-style: none;
+}
+
+img {
+    width: 640px;
+}

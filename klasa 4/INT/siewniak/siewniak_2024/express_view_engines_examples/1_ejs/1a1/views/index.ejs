@@ -1,0 +1,49 @@
+<!--PLIK WIDOKU-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - EJS </title>
+    <meta charset="UTF-8">
+
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <!--UWAGA
+        Położenie pliku CSS zostało określone względem katalogu /public, który został zdefiniowany w aplikacji,
+        jako folder zawierający zasoby publiczne.
+    -->
+    <style type="text/css">
+        img {
+            width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> Ciężarówki w Polsce w latach 70-tych XX wieku </h1>
+        </div>
+        <div class="main">
+            <h2> Informacje </h2>
+            <p>
+                Jeszcze w latach 70-tych XX wieku nasze drogi były pełne Jelczy, Starów, Steyrów, Tatr, Liazów i Kamazów.
+                Dzisiaj na tych samych drogach można faktycznie spotkać tylko ciężarówki producentów zachodnich,
+                należących do tzw. "wielkiej siódemki", tj. Volvo, Scania, Man, Mercedes, Renault, DAF i Iveco.
+            </p>
+
+            <img src="./images/jelcz.jpg" alt="Jelcz W640" /> <br />
+            <!--UWAGA
+                Położenie pliku JPG zostało określone względem katalogu /public, który został zdefiniowany w aplikacji,
+                jako folder zawierający zasoby publiczne.
+            -->
+            <small>
+                <span class="image_title">Jelcz W640 JS</span>
+                (źródło: Zdzisław Podbielski. Samochody ciężarowe, specjalne i autobusy.
+                Instytut Wydawniczy "NASZA KSIĘGARNIA", Warszawa 1988)
+            </small> <br />
+        </div>
+
+        <div class="footer">
+            <h4> © Piotr Siewniak 2022, wersja: 23.IV.2022 r. </h4>
+        </div>
+    </div>
+</body>
+</html>

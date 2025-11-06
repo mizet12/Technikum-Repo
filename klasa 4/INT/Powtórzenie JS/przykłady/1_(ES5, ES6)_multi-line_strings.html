@@ -1,0 +1,65 @@
+﻿<!--ES5, ES6: łańcuchy wieloliniowe (multi-line strings).
+
+    © Piotr Siewniak, wersja: 6.III.2018r. 
+-->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ES5, ES6 - wieloliniowe łańcuchy znaków </title>
+    <meta charset="UTF-8">
+</head>
+<body>                       
+    <script>      
+        // ES5 - konkatenacja łańcuchów:         
+        var litL1 = '\n'           +
+                    'Microsoft \n' +
+                    'Visual \n'    +
+                    'Studio \n'    +
+                    'Community \n' +
+                    '2017';
+        console.log("litL1 = %s", litL1);
+
+        // ES5 - łańcuch wieloliniowy:
+        var litL2 = "\n \
+                   Microsoft\n \
+                   Visual\n \
+                   Studio\n\
+        Community\n\
+2017";
+        console.log("litL2 = %s", litL2);
+        /* UWAGA 
+         * Białe spacje (white spaces) są uwzględniane!
+         * Białe spacje stanowią integralne elementy składowe łańcucha!
+         */
+
+        // ES5 - łańcuch wieloliniowy zapisany w tablicy:
+        var litL3 = [
+                    'Microsoft',
+                    'Visual',
+                    'Studio',
+                    'Community',
+                    '2017'
+        ].join("\n");
+        console.log("litL3 = %s", litL3);
+        /* UWAGA 
+         * Białe spacje nie są uwzględniane!
+         */
+        
+        // ES6 - łańcuch wieloliniowy w postaci literału "szablonowego" (template literal):
+        const litL4 = `
+                    Microsoft
+                    Visual
+                    Studio
+        Community
+2017`; 
+        //  
+        console.log("litL4 = %s", litL4);
+        /* UWAGA 
+         * Białe spacje są uwzględniane, stanowią integralną część literału szblonowego.
+         *
+         * Znak `: backtick, backtick quote, backquote (pol.: odwrócony apostrof, grawis).
+         */
+    </script>   
+</body>
+</html>

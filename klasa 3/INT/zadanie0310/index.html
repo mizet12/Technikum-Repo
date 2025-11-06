@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .B{
+            background-image: linear-gradient(#2322f4,#9233FF);
+            max-width: 500px;
+        }
+        .A{
+            border: 1px solid black;
+            border-radius: 10px;
+            max-width: 400px;
+            background-image: linear-gradient(#4d4d4d,#888888);
+        }
+        body{
+            background-color: dimgray;
+        }
+    </style>
+</head>
+<body>
+ 
+    <div id="dive">
+        <!-- <div class="B"><b>Lekcja 1</b> 07:45</div>
+        <div class="B"><b>Lekcja 2</b> 08:35</div>
+        <div class="B"><b>Lekcja 3</b> 09:25</div>
+        <div class="B"><b>Lekcja 4</b> 10:15</div>
+        <div class="B"><b>Lekcja 5</b> 11:15</div>
+        <div class="B"><b>Lekcja 6</b> 12:15</div>
+    </div>
+    <div class="A">
+        Podaj nazwe <input type="text"><br>
+        Podaj godzine <input type="text"><br>
+        Podaj minute <input type="text"><br>
+        <button>Ok</button>
+        <button>Cancel</button> -->
+    </div>
+    <script src="Odliczanie.js"></script>
+    <script src="Edycja.js"></script>
+    <script src="Witaj.js"></script>
+    <script>
+        const poka = document.getElementById("dive");
+        poka.innerHTML = `${new Powitanie().render()} ${EdycjaLekcji()}`;
+    </script>
+</body>
+</html>

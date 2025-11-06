@@ -1,0 +1,68 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    Podejście klasyczne. Enkapsulacja - metoda defineProperty().
+    
+    © Piotr Siewniak, wersja: 19.XI.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> JavaScript - enkapsulacja </title>
+    <meta charset="UTF-8">
+</head>
+<body>   
+    <script>
+        // Definicja konstruktora typu obiektowego Student:
+        function Student(imie, nazwisko) {
+            this._imie = imie;
+            this._nazwisko = nazwisko;
+        }
+        // Utworzenie obiektu typu Student:
+        const student = new Student('Piotr', 'Siewniak');
+        console.log(student);
+        Object.defineProperty(student, 'imie', {
+            get: function() {
+                return this._imie;
+            },
+            set: function(imie) {
+                this._imie = imie;
+            }
+        });
+
+        Object.defineProperty(student, 'nazwisko', {
+            get: function() {
+                return this._nazwisko;
+            },
+            set: function(nazwisko) {
+                this._nazwisko = nazwisko;
+            }
+        })
+        /* UWAGA
+            W ogólności, metoda statyczna defineProperty() pozwala na:
+            1) dodanie nowej właściwości do obiektu;
+            2) modyfikację istniejącej właściowści.
+            Metoda ta zwraca zmodyfikowany obiekt.
+
+            Tutaj:
+            metoda defineProperty() została użyta w celu modyfikacji  właściwości _imie i _nazwisko obiektu student.
+         */
+
+        // Prezentacja danych z obiektu student - wykorzystanie getterów:
+        console.log("DANE STUDENTA");
+        console.log("Imię: ", student.imie);
+        console.log("Nazwisko: ", student.nazwisko);
+
+        // Wykorzystanie settera:
+        student.nazwisko = 'Bukowski';
+        // Prezentacja zmienionych danych z obiektu - wykorzystanie getterów:
+        console.log("ZMIENIONE DANE STUDENTA");
+        console.log("Imię: ", student.imie);
+        console.log("Nazwisko: ", student.nazwisko);
+
+        // Wyświetlenie zawartości obiektu student:
+        console.log("student: ", student);
+    </script>
+
+    <h1> Programowanie obiektowe w JavaScripcie - podejście klasyczne </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>

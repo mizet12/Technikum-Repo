@@ -1,0 +1,46 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    metoda Object.create(). Wykorzystanie funkcji - konstruktora typu obiektowego.
+
+    © Piotr Siewniak 2018-..., wersja: 22.II.2018 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 5.1 - metoda Object.create(). </title>
+    <meta charset="UTF-8">
+    <script>
+        // Definicja konstruktora obiektu:
+        function Auto(marka, model) {
+            // Definicje właściwości:
+            this._marka = marka;
+            this._model = model;
+            // Definicja metody:
+            this.zwrocDane = function() {
+                return (this._marka + " " + this._model);
+            }
+        }        
+    </script>
+</head>
+<body>   
+    <script> 
+        // Utworzenie nowego obiektu poprzez wywołanie konstruktora:
+        const prototypAuto = new Auto();
+        /* UWAGA
+         * Obiekt prototypAuto będzie pełnił rolę prototypu-wzorca dla innych
+         * nowotworzonych obiektów.
+         */
+                                
+        // Utworzenie obiektu - wykorzystanie wzorca:
+        const auto1 = Object.create(prototypAuto);
+        auto1._marka = "Volkswagen";
+        auto1._model = "Golf";
+        console.log("auto1._marka: ", auto1._marka);
+        console.log("auto1._model: ", auto1._model);
+        console.log("auto1.zwrocDane(): ", auto1.zwrocDane());
+    </script>
+
+    <h1> Programowanie obiektowe w JavaScripcie - podejście klasyczne </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>
+      

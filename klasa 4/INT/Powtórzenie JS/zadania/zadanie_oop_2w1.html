@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    a<input type="text" id="a">
+    b<input type="text" id="b">
+    <button onclick="oblicz()">oblicz</button>
+    <script>
+        
+        function NoDataError(message){
+            this.name = "NoData"
+            this.message = message
+        }
+        NoDataError.prototype = new Error();
+
+        function NoNumberError(message){
+            this.name = "NoNumber"
+            this.message = message
+        }
+        NoNumberError.prototype = new Error();
+
+        function InvalidNumberError(message){
+            this.name = "InvalidNumber"
+            this.message = message
+        }
+        InvalidNumberError.prototype = new Error()
+
+        function oblicz(){
+            
+            let a = document.getElementById("a").value
+            let b = document.getElementById("b").value
+            console.log(a * b)
+            try{
+                if(a <= 0 || b <= 0){
+                throw new InvalidNumberError("number")
+            }
+            if(!typeof(a) == "number" || !typeof(b) == "number"){
+                throw new NoNumberError("number")
+            }
+            if(a == null || b == null){
+                throw new NoDataError("number")
+                
+            }
+            }catch(err){
+                console.log(err)
+            }
+            
+        }
+    </script>
+</body>
+</html>

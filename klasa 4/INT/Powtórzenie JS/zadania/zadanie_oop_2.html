@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+imie: <input type="text" id="name">    
+nazwisko: <input type="text" id="amne">
+pesel: <input type="number" id="pesel">
+<button onclick="zapisz()">zapisz</button>
+
+<script>
+function zapisz(){
+    obj = {
+        imie: document.getElementById("name").value,
+        nazwisko: document.getElementById("amne").value,
+        pesel: document.getElementById("pesel").value
+    }
+}
+</script>
+</body>
+</html>

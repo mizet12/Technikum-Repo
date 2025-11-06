@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - EJS </title>
+    <meta charset="UTF-8">
+
+    <style type="text/css">
+        .container {
+            font-family: Tahoma;
+            font-size: 1em;
+        }
+        h3 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3> Imię i nazwisko: <%=data.imie%> <%=data.nazwisko%> </h3>
+        <!--UWAGA
+            Do wynikowego (statycznego) kodu HTML wstrzyknięto dwie dane dynamiczne (jako właściwości obiektu data):
+            1) data.imie;
+            2) data.nazwisko.
+
+            Dane te zostały określone (zdefiniowane) w aplikacji i są przesyłane do pliku widoku index.ejs
+            poprzez wywołanie metody res.render(). Po zakończeniu renderowania pliku index.ejs dane te
+            zostają osadzone w wynikowym HTML i przesłane do klienta.
+        -->
+        <h4>Przedmioty:</h4>
+        <ul>
+            <% data.przedmioty.forEach((item) => {%>
+                <li> <%=item%> </li>
+            <%});
+            %>
+            <!--UWAGA
+                Powyżej, do pliku widoku wstrzyknięto dane otrzymane z serwera aplikacji: data.przedmioty.
+                Ponadto, osadzono tutaj zwykły kod JS, który reprezentuje pętla forEach() wykonywaną
+                na elementach tablicy przedmioty, będącej właściwością obiektu data.
+            -->
+        </ul>
+    </div>
+</body>
+</html>

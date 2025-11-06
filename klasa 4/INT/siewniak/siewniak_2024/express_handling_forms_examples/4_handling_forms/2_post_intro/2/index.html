@@ -1,0 +1,32 @@
+<!--NODE EXPRESS - OBSŁUGA FORMULARZY (HANDLING FORMS)
+    Metoda HTTP POST.
+
+    © Piotr Siewniak, wersja: 22.II.2022 r.
+-->
+
+
+<!--UWAGA
+    Przed uruchomieniem tego kodu HTML należy najpierw wykonać program server.js,
+    czyli skonfigurować ustawienia aplikacji, routing i uruchomić serwera aplikacji.
+-->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - HTTP POST </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    PODAJ DANE SAMOCHODU: <br />
+    <form action="http://127.0.0.1:8018/form" method="POST">
+        <!--Dane zostaną przesłane za pomocą metody HTTP POST na adres URL:
+            http://127.0.0.1:8011/form
+        -->
+        Marka <input type="text" name="marka">  <br />
+        Model <input type="text" name="model"> <br />
+        Numer rejestracyjny <input type="text" name="nr_rejestracyjny"> <br />
+
+        <input type="submit" value="Wyślij">
+    </form>
+</body>
+</html>

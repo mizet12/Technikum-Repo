@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zad1 - w1</title>
+</head>
+<body>
+
+    <div>
+        <h1>Prostopadłoscian</h1>
+        <h2>Wprowadź długość boków prostopadłościanu:</h2>
+        <form action="javascript:void(0)">
+
+            <div>a:<input type="text" id="a" /></div>
+            <div>b:<input type="text" id="b" /></div>
+            <div>c:<input type="text" id="c" /></div>
+
+            <button type="button" onclick="main(obliczenia);">Oblicz</button>
+
+        </form>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+
+        class Prostopadloscian {
+            constructor(a, b, c) {
+                this._a = a
+                this._b = b
+                this._c = c
+            }
+
+            objetosc() {
+                return this._a * this._b * this._c
+            }
+
+            polePowierzchni() {
+                return this._a * this._b + this._b * this._c + this._a * this._c
+            }
+
+            dlugoscKrawedzi() {
+                return 4 * (this._a + this._b + this._c)
+            }
+        }
+
+
+        function obliczenia(prost) {
+            let message = `Objętość prostopadłościanu: ${prost.objetosc()}
+            ,Pole powierzchni bocznej: ${prost.polePowierzchni()}
+            ,Długość krawędzi: ${prost.dlugoscKrawedzi()}`
+
+            document.getElementById("output").innerHTML = message
+            console.log(message)
+        }
+
+        function validation(x, name) {
+            document.getElementById("output").style.color = 'red'
+
+            if(x == "") {
+                let message = `Nie wprowadzono danych dla boku ${name}!`
+                console.log(message)
+                document.getElementById("output").innerHTML = message
+                return false
+            }
+            if(isNaN(x)) {
+                let message = `Długość boku ${name} musi być liczbą!`
+                console.log(message)
+                document.getElementById("output").innerHTML = message
+                return false
+            }
+            if(x <= 0) {
+                let message = `Bok ${name} musi być większy od zera!`
+                console.log(message)
+                document.getElementById("output").innerHTML = message
+                return false
+            }
+
+            return true
+        }
+
+        function main(callback) {
+            let a = document.getElementById("a").value
+            let b = document.getElementById("b").value
+            let c = document.getElementById("c").value
+
+            if(!validation(a, 'a') || !validation(b, 'b') || !validation(c, 'c'))
+                return
+
+            a = Number(a)
+            b = Number(b)
+            c = Number(c)
+
+            const prostopadloscian1 = new Prostopadloscian(a, b, c)
+
+            setTimeout(() => {
+                callback(prostopadloscian1)
+            }, 0)
+
+            document.getElementById('output').style.color = 'green'
+            console.log('waidomość z końca programu')
+        }
+
+
+    </script>
+    
+</body>
+</html>
+

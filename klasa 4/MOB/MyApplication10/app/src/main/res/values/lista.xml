@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="enteries">
+        <item>Zakupy, chleb, masło, ser</item>
+        <item>Do zrobienia: obiad, umyć podłogi</item>
+        <item>weekend kino, spacer z psem</item>
+    </string-array>
+    <string-array name="gatunki">
+        <item>Pies</item>
+        <item>Kot</item>
+        <item>Świnka morska</item>
+    </string-array>
+</resources>

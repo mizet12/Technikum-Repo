@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - EJS </title>
+    <meta charset="UTF-8">
+
+    <style type="text/css">
+        .container{
+            font-family: Tahoma;
+        }
+        .info {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Witamy na naszej stronie <%= (user.imie).toUpperCase() %> </h1>
+        <!--UWAGA
+            Dana dynamiczna user.imie jest przesyłana do pliku widoku z serwera aplikacji
+            poprzez wywołanie metody res.render().
+            Po renderowaniu zawartości pliku dana ta zostaje osadzona w kodzie wynikowym HTML,
+            który jest przesyłany do klienta.
+        -->
+        <!--Osadzenie kodu JavaScript:-->
+        <% if (user.stanowisko == 'nauczyciel') {%>
+            <p class="info"> Uwaga! Powinieneś wystawić oceny semestralne! </p>
+        <%}
+        else {%>
+            <p class="info"> Uwaga! Nie jesteś nauczycielem! </p>
+        <%}
+        %>
+    </div>
+    <!--UWAGA
+        Powyżej, w kodzie HTML została osadzona instrukcja warunkowa JavaScript.
+        Warunek jest skonstruowany na bazie danej dynamicznej user.stanowisko przesłanej z serwera aplikacji.
+        W zależności od tego, czy warunek jest spełniony, do klienta wysyłany jest odpowiedni komunikat kontrolny.
+    -->
+</body>
+</html>

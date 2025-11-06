@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tablice4</string>
+    <plurals name="osoby">
+        <item quantity="one">%d osoba</item>
+        <item quantity="few">%d osoby</item>
+        <item quantity="many">%d osób</item>
+        <item quantity="other">%d osób</item>
+    </plurals>
+</resources>

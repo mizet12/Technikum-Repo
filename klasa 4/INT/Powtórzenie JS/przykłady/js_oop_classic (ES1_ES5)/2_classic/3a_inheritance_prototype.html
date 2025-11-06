@@ -1,0 +1,88 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE
+    Mechanizm dziedziczenia. Podejście klasyczne: wykorzystanie prototypów.
+
+    © Piotr Siewniak, wersja: 16.II.2018 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Mechanizm dziedziczenia - wykorzystanie prototypów  </title>
+    <meta charset="UTF-8">
+    <script>
+        // Konstruktor typu obiektowego Pracownik:
+        function Pracownik(imie, nazwisko) {
+            // Definicje właściwości:
+            this._imie = imie;
+            this._nazwisko = nazwisko;
+            // Definicja metody dostępowej:
+            this.zwrocDanePracownika = function() {
+                return ("imie: " + this._imie + ", nazwisko: " + this._nazwisko);
+            } 
+        }        
+    </script>
+</head>
+<body>   
+    <script>
+        // Konstruktor typu obiektowego Nauczyciel:
+        function Nauczyciel(przedmiot) {
+            this._przedmiot = przedmiot;
+            this.zwrocPrzedmiot = function() {
+                return (this._przedmiot);
+            }
+        }
+
+        // Dodanie wszystkich elementów członkowskich typu bazowego Pracownik
+        // do prototypu (obiektu prototypowego) typu pochodnego Nauczyciel:
+        Nauczyciel.prototype = new Pracownik();
+        // Prezentacja obiektu prototypowego Nauczyciel.prototype:
+        console.log("Nauczyciel.prototype:", Nauczyciel.prototype);
+        /* UWAGA
+         * Nowoutworzone obiekty typu pochodnego Nauczyciel będą dziedziczyć
+         * od prototypu Nauczyciel.prototype wszystkie właściwości i metody
+         * należące do typu bazowego Pracownik.
+         *
+         * W ogólności, wykoprzystanie właściwości prototype definiuje mechanizm,
+         * dzięki któremu obiekty JS dziedziczą właściwości i metody od innych obiektów.
+         * Prototyp można nazwać obiektem szablonowym (template object), który pozwala
+         * na dziedziczenie od siebie określonych właściwości i metod.
+         * Dany prototyp obiektu może posiadać "swój własny" prototyp itd.
+         * Dzięki temu można zdefiniować cały łańuch dziedziczenia.
+         * Lańcuch ten nazywany jest w języku JS łańuchem prototypów (prototype chain).
+         */
+
+        // Utworzenie obiektu typu pochodnego Nauczyciel:
+        const nauczyciel1 = new Nauczyciel();
+        // Inicjalizacja właściwości odziedziczonych od typu bazowego Pracownik:
+        nauczyciel1._imie = "Jan";
+        nauczyciel1._nazwisko = "Kowalski";
+        // Inicjalizacja właściwości natywnej typu pochodnego Nauczyciel:
+        nauczyciel1._przedmiot = "język polski";
+
+        // Prezentacja obiektu nauczyciel1:
+        console.log("nauczyciel1:", nauczyciel1);
+        // Wykorzystanie metody odziedziczonej od typu bazowego Pracownik:
+        console.log("nauczyciel1.zwrocDanePracownika():", nauczyciel1.zwrocDanePracownika());
+        // Wykorzystanie metody natywnej typu pochodnego Nauczyciel:
+        console.log("nauczyciel1.zwrocPrzedmiot():", nauczyciel1.zwrocPrzedmiot());
+
+        
+        // Utworzenie obiektu typu pochodnego Nauczyciel:
+        const nauczyciel2 = new Nauczyciel();
+        // Inicjalizacja właściwości odziedziczonych od typu bazowego Pracownik:
+        nauczyciel2._imie = "Adam";
+        nauczyciel2._nazwisko = "Nowak";
+        // Inicjalizacja właściwości natywnej typu pochodnego Nauczyciel:
+        nauczyciel2._przedmiot = "matematyka";
+
+        // Prezentacja obiektu nauczyciel2:
+        console.log("nauczyciel2:", nauczyciel2);
+        // Wykorzystanie metody odziedziczonej od typu bazowego Pracownik:
+        console.log("nauczyciel2.zwrocDanePracownika():", nauczyciel2.zwrocDanePracownika());
+        // Wykorzystanie metody natywnej typu pochodnego Nauczyciel:
+        console.log("nauczyciel2.zwrocPrzedmiot():", nauczyciel2.zwrocPrzedmiot());
+    </script>
+
+    <h1> Programowanie obiektowe w JavaScripcie - podejście klasyczne </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>

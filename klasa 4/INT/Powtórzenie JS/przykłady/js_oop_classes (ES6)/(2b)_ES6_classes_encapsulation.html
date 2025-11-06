@@ -1,0 +1,107 @@
+﻿<!--ECMAScript 2015 (ES6). PROGRAMOWANIE OBIEKTOWE.
+
+    Hermetyzacja danych.
+    Wykorzystanie getterów i setterów.
+
+    © Piotr Siewniak, wersja: 14.XI.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 6 - hermetyzacja (enkapsulacja). </title>
+    <meta charset="UTF-8">
+</head>
+<body>   
+    <script>
+        // Definicja klasy w postaci deklaracji:      
+        class Osoba  {  
+            // Definicja konstruktora:
+            constructor(imie, nazwisko) {
+                if (typeof(imie) == "string") this._imie = imie;
+                    else console.log("Błędna wartość danej imie!");
+                if (typeof(nazwisko) == "string") this._nazwisko = nazwisko;
+                    else console.log("Błędna wartość danej nazwisko!");
+            }
+             /* UWAGA
+                Słowa kluczowe get i set pozwalają na skojarzenie określonej właściwości obiektu z zadaną funkcją.
+                Funkcja ta zostanie wywołana automatycznie (po cichu) przy próbie odwołania się do właściwości.
+
+                Funkcje skojarzone z właściwościami obiektu za pomocą słowa kluczowego get nazywane są getterami.
+                Z kolei funkcje skojarzone z właściwościami przy użyciu słowa kluczowego set - setterami.
+
+                Biorąc pod uwagę powyższe, gettery i settery zapewniają pośredni dostęp do właściwości obiektu.
+
+                Gettery i settery nazywane są akcesorami obiektu (Object Accessors).
+                Niekiedy nazywa się je "właściwościami obliczonymi" (computed properties).
+              */
+
+            // Definicja gettera - skojarzenie pseudo-właściwości 'imie' z funkcją dostępową
+            // do właściwości _imie w trybie GET:
+            get imie() {
+                return this._imie;
+            }
+             // Definicja gettera - skojarzenie pseudo-właściwości 'nazwisko' z funkcją dostępową
+            // do właściwości _nazwisko w trybie GET:
+            get nazwisko() {
+                return this._nazwisko;
+            }
+
+            // Definicja settera - skojarzenie pseudo-właściwości 'imie' z funkcją dostępową
+            // do właściwości _imie w trybie SET:
+            set imie(imie) {
+                if (typeof(imie) == "string") this._imie = imie;
+                    else console.log("Błędna wartość danej imie!");
+            }
+            // Definicja settera - skojarzenie pseudo-właściwości 'nazwisko' z funkcją dostępową
+            // do właściwości _nazwisko w trybie SET:
+            set nazwisko(nazwisko) {
+                if (typeof(nazwisko) == "string") this._nazwisko = nazwisko;
+                    else console.log("Błędna wartość danej nazwisko!");
+            }
+        }
+
+        let imie1 = 5; // Celowo błędna wartość!
+        let nazwisko1 = "Siewniak";
+        
+        // Utworzenie obiektu osoba1, jako instancji klasy Osoba.
+        let osoba1 = new Osoba(imie1, nazwisko1);
+        /* UWAGA
+          * Utworzenie nowego obiektu klasy Osoba wiąże się z jego inicjacją.
+          * Inicjacja ta polega na niejawnym wykonaniu setterów skojarzonych
+          * z właściwościami imie oraz nazwisko.
+          *
+          * Hermetyzacja danych (właściwości) imie oraz nazwisko polega na zapewnieniu
+          * dostępu do tych danych w sposób pośredni - za pomocą metod get i set, 
+          * a nie bezpośredni.
+          * 
+          * Tutaj: wywołanie konstruktora z argumentami imie1 i nazwisko1 spowoduje
+          * utworzenie obiektu należącego do klasy Osoba, a następnie inicjację jego właściwości,
+          * która polega na niejawnym wywołaniu setterów dla właściwości imie i nazwisko.
+          */
+
+        // Wykorzystanie właściwości imie oraz nazwisko obiektu osoba1, 
+        // a w spOsób niejawny getterów skojarzonych z tymi właściwościami:
+        console.log("Imię: %s, nazwisko: %s",
+            osoba1.imie, // error!
+            osoba1.nazwisko //Siewniak
+            ); 
+    
+        // Próba zmiany wartości właściwości _imie:
+        osoba1.imie  = null; // wartość celowo nieprawidłowa
+        console.log("Imię: %s, nazwisko: %s", 
+            osoba1.imie, // error!
+            osoba1.nazwisko //Siewniak
+            ); 
+    
+        // Zmiana wartości właściwości _imie:
+        osoba1.imie  = 'Piotr'; // wartość prawidłowa
+        console.log("Imię: %s, nazwisko: %s", 
+            osoba1.imie, // error!
+            osoba1.nazwisko //Siewniak
+            ); 
+    </script>
+
+    <h1> JavaScript - gettery i settery </h1>
+    <h4 style="color: red;"> Uwaga! Przejdź do konsoli przeglądarki (F12) ... </h4>
+</body>
+</html>

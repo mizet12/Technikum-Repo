@@ -1,0 +1,33 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    Podejście klasyczne. Notacja literałowa.
+    
+    © Piotr Siewniak, wersja: 4.XI.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Obiekty w JavaScript </title>
+    <meta charset="UTF-8">
+</head>
+<body>    
+    <script>
+        // Definicja pustego obiektu - notacja literałowa:
+        const student = {};
+        student['imie'] = "Piotr";
+        student['nazwisko'] = "Siewniak";
+        student['wiek'] = 50;
+        
+        /* UWAGA
+          * Odwałanie się do właściwości obiektu można zrealizować na dwa sposoby:
+          *     a) przy użyciu notacji "obiektowej" (z kropkami);
+          *     b) przy użyciu notacji "tablicowej (z nawiasami kwadratowymi).
+          * 
+          * Tutaj zademonstrowano wykorzystanie notacji tablicowej.  
+          */        
+        
+        // Prezentacja danych - wartości właściwości obiektu student:
+        console.log("student['imie']: ", student['imie']);
+        console.log("student['nazwisko']: ", student['nazwisko']);
+    </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+Zadanie 4.1: 7852 punktów wewn¹trz ko³a.
+Punkty na okrêgu:
+256 8
+200 400

@@ -1,0 +1,44 @@
+﻿<Window x:Class="TextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Text Editor" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Menu -->
+        <Menu Grid.Row="0" Background="DarkSlateGray" >
+            <MenuItem Header="_File">
+                
+                <MenuItem Header="_New Document" Click="NewDocument_Click"/>
+                <MenuItem Header="_Open Document" Click="OpenDocument_Click"/>
+                <MenuItem Header="_Save Document" Click="SaveDocument_Click"/>
+                <Separator/>
+                <MenuItem Header="_Exit" Click="Exit_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- TabControl -->
+        <TabControl x:Name="tabControl" Grid.Row="1" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Untitled">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TreeView x:Name="treeView" Grid.Column="0"/>
+                    <RichTextBox x:Name="richTextBox" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <!-- StatusBar -->
+        <StatusBar Grid.Row="2" Background="DarkSlateGray" Foreground="White">
+            <StatusBarItem x:Name="statusBar" Content="Status"/>
+        </StatusBar>
+    </Grid>
+</Window>

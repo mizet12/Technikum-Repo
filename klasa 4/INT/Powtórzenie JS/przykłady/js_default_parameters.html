@@ -1,0 +1,60 @@
+﻿<!--JavaScript ES5, ES6: parametry domyślne funkcji.
+
+    © Piotr Siewniak 2018, wersja: 14.III.2018 r.
+---->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ES6 - Default Parameters </title>
+    <meta charset="UTF-8">
+</head>
+<body>                    
+    <script>
+        // JAVASCRIPT ES5
+        // Deklaracja funkcji nazwanej ze "zwykłymi" parametrami:
+        function daneAuto_1(marka, model) {
+            return marka + " " + model;
+        }
+        // Wywołanie funkcji daneAuto1 z zadanymi argumentami tego wywołania:
+        console.log("daneAuto_1(\"Volkswagen\", \"Golf\") = %s", daneAuto_1("Volkswagen", "Golf"));
+
+
+        // JAVASCRIPT ES5
+        // Deklaracja zwykłej funkcji z paramerami domyślnymi:
+        function daneAuto_2a(marka, model) {
+            var marka = marka || "Opel"; // ustalenie domyślnej wartości parametru marka
+            var model = model || "Astra"; // ustalenie domyślnej wartości parametru model
+
+            return marka + " " + model;
+        }
+        console.log("daneAuto_2a() = %s", daneAuto_2a());
+
+        // Definicja funkcji anonimowej (wyrażenia funkcyjnego) z paramerami domyślnymi:
+        var daneAuto_2b = function(marka, model) {
+            var marka = marka || "Ford"; // ustalenie domyślnej wartości parametru marka
+            var model = model || "Focus"; // ustalenie domyślnej wartości parametru model
+
+            return marka + " " + model;
+        }
+        console.log("daneAuto_2b() = %s", daneAuto_2b());
+
+
+        // JAVASCRIPT ES6
+        // Deklaracja "zwykłej" funkcji nazwanej z parametrami domyślnymi:
+        function daneAuto_3a(marka="Peugeot", model="308") {
+            return marka + " " + model;
+        }        
+        console.log("daneAuto_3a() = %s", daneAuto_3a());
+
+        // Definicja funkcji strzałkowej z parametrami domyślnymi:
+        const daneAuto_3b = (marka="Renault", model="Megane") => marka + " " + model;
+        /* UWAGA
+           Definicja funkcji strzałkowej daneAuto_3b() może mieć również postać:
+                let daneAuto_3b = (marka="Renault", model="Megane") => { return marka + " " + model;
+                }
+         */
+        console.log("daneAuto_3b() = %s", daneAuto_3b());
+    </script>    
+</body>
+</html>

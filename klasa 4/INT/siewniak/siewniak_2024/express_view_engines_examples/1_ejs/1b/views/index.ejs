@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--    Wstrzyknięcie na stronę widoku danych dynamicznych - zawartości dynamicznej (dynamic content).
+        Osadzenie na stronie widoku kodu JavaScript.
+-->
+<html lang="pl">
+<head>
+    <title> Node Express - EJS </title>
+    <meta charset="UTF-8">
+
+    <style type="text/css">
+        .div {
+            font-family: Tahoma;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <h4> DANE SAMOCHODU </h4>
+        <p> Marka: <%=marka.toUpperCase()%>, model: <%=model.toUpperCase()%> </p>
+        <!--Powyżej wstawiono (wstrzyknięto) na stronę HTML zawartość dynamiczną (dynamic content)
+            w postaci danych: marka i model, przesłanych z (serwera) aplikacji.
+
+            Wstawienie danych (dynamicznej zawartości) na statyczną stronę HTML uzyskuje się
+            za pomocą literału szablonowego (template literal), którego przykłady podano powyżej.
+            W taki sposób można wstrzykiwać dane dowolnego typu.
+
+            Jednocześnie należy zwrócić uwagę, że w obrębie wykorzystanych literałów użyto
+            funkcji JavaScript toUpperCase(), czyli wstawiono (wstrzyknięto) na stronę kod JS.
+        -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    Podejście klasyczne. Wbudowany konstruktor Object()..
+    
+    © Piotr Siewniak, wersja: 4.XI.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Obiekty w JavaScript. </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        const student = new Object();
+        console.log("student: ", student);
+        student.imie = "Piotr";
+        student.nazwisko = "Siewniak";
+        student.wiek = 50;
+        
+
+        student.plec;
+        /* UWAGA
+          * Zadeklarowana, ale niezainicjowana (czyli niezdefiniowana) właściwość nie jest widziana w obiekcie!
+          */        
+        console.log("student.plec: ", student.plec); // undefined
+        console.log("student: ", student);
+        
+        // Definicja metody:
+        student.zwrocDane = function() {
+            return (this.imie + " " + this.nazwisko + ", wiek: " + this.wiek);
+        }
+  
+        console.log("student.zwrocDane(): ", student.zwrocDane());
+    </script>
+</body>
+</html>
+

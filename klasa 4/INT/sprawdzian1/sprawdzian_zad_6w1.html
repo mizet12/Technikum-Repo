@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <select id="wybor">
+        <option value="2">nauczyciel</option>
+        <option value="3">wychowawca</option>
+        <option value="4">sekretarka</option>
+    </select>
+    <button onclick="decyzja()">Wybierz</button>
+    <div id="pole"></div>
+    <script>
+         function NoDataError(message){
+            this.name = "NoData"
+            this.message = message
+        }
+        NoDataError.prototype = new Error();
+
+
+        function decyzja(){
+            if(document.getElementById("wybor").value == 2){
+                document.getElementById("pole").innerHTML = 'Podaj imie Nauczyciela<input type="text" id="name"> Podaj nazwisko nauczyciela<input type="text" id="surname"> Podaj jakiego przemiotu uczy<input type="text" id="subject"><button onclick="zapamietajnau()">Zapamiętaj</button> <p id="dane"></p>'
+            }else if(document.getElementById("wybor").value == 3){
+                document.getElementById("pole").innerHTML = 'Podaj imie Wychowawcy<input type="text" id="name"> Podaj nazwisko Wychowawcy<input type="text" id="surname"> Podaj jakiego przemiotu uczy<input type="text" id="subject"> Podaj której klasy jest wychowawcą<input type="text" id="class"><button onclick="zapamietajwych()">Zapamiętaj</button> <p id="dane"></p>'
+            }else if(document.getElementById("wybor").value == 4){
+                document.getElementById("pole").innerHTML = 'Podaj imie Sekretarki<input type="text" id="name"> Podaj nazwisko Sekretarki<input type="text" id="surname"> Podaj numer sali sekretariatu<input type="text" id="room"><button onclick="zapamietajsek()">Zapamiętaj</button> <p id="dane"></p>'
+            }
+        }
+        function Pracownik(imie, nazwisko){
+            this._imie = imie;
+            this._nazwisko = nazwisko;
+            
+            this.zwrocDane = function(){
+                document.getElementById("dane").innerHTML = this._imie + " " + this._nazwisko;
+            }
+            
+        }
+        
+        function zapamietajnau(imie, nazwisko, przemiot){
+            try{
+            if(document.getElementById("name").value !== "" && document.getElementById("surname").value !== "" && document.getElementById("subject").value !== ""){
+                imie = document.getElementById("name").value
+            nazwisko = document.getElementById("surname").value
+            przedmiot = document.getElementById("subject").value
+            const nauczyciel1 = new Pracownik(imie, nazwisko)
+            nauczyciel1._przedmiot = przedmiot
+
+            nauczyciel1.zwrocDane = function(){
+                document.getElementById("dane").innerHTML = nauczyciel1._imie + " " + nauczyciel1._nazwisko + " "+ nauczyciel1._przedmiot;
+            }
+            nauczyciel1.zwrocDane()
+            }else{
+                
+                throw new NoDataError("!Podaj Wartości!") 
+               
+            }
+            
+            }catch(err){
+                alert(err)
+            }
+            
+        }
+
+        function zapamietajwych(imie, nazwisko, przemiot, klasa){
+            try{
+            if(document.getElementById("name").value !== "" && document.getElementById("surname").value !== "" && document.getElementById("subject").value !== "" && document.getElementById("class").value !== ""){
+                imie = document.getElementById("name").value
+            nazwisko = document.getElementById("surname").value
+            przemiot = document.getElementById("subject").value
+            klasa = document.getElementById("class").value
+            const wychowawca1 = new zapamietajnau(imie, nazwisko, przemiot)
+            wychowawca1._klasa = klasa
+
+            wychowawca1.zwrocDane = function(){
+                document.getElementById("dane").innerHTML = wychowawca1._imie + " " + wychowawca1._nazwisko + " "+ wychowawca1._przedmiot + " klasa: " + wychowawca1._klasa;
+            }
+            wychowawca1.zwrocDane()
+            }else{
+                throw new NoDataError("!Podaj Wartości!") 
+                
+            }
+            
+            }catch(err){
+                alert(err)
+            }
+            
+        }
+
+        function zapamietajsek(imie, nazwisko, sala){
+            try{
+            if(document.getElementById("name").value !== "" && document.getElementById("surname").value !== "" && document.getElementById("room").value !== ""){
+                imie = document.getElementById("name").value
+            nazwisko = document.getElementById("surname").value
+            sala = document.getElementById("room").value
+            const sekretarka1 = new Pracownik(imie, nazwisko)
+            sekretarka1._sala = sala;
+
+            sekretarka1.zwrocDane = function(){
+                document.getElementById("dane").innerHTML = sekretarka1._imie + " " + sekretarka1._nazwisko + " sala sekretariatu: " + sekretarka1._sala
+            }
+            sekretarka1.zwrocDane()
+            }else{
+                throw new NoDataError("!Podaj Wartości!") 
+                
+            }
+            
+            }catch(err){
+                alert(err)
+            }
+            
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

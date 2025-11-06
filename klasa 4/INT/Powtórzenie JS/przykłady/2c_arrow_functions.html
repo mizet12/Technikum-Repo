@@ -1,0 +1,52 @@
+﻿<!--JavaScript ES5:     wyrażenia funkcyjne (function expressions).
+    JavaScript ES6:     funkcje strzałkowe (arrow functions).
+
+    © Piotr Siewniak, wersja: 4.VIII.2021 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> JAVASCRIPT: WYRAŻENIA FUNKCYJNE, FUNKCJE STRZAŁKOWE </title>
+    <meta charset="UTF-8">
+</head>
+<body>                    
+    <script>
+        // Deklaracja i inicjalizacja tablicy przy użyciu notacji literałowej:
+        const tablica = [3, 4, 5];
+
+        // JavaScript ES5 - wyrażenie funkcyjne:
+        const srednia1 = function (t) {
+            var sumaEl = 0;
+            for (var indeks in t)
+                sumaEl += t[indeks];
+            return sumaEl / t.length;
+        }
+        /* UWAGA
+            Funkcja anonimowa zdefiniowana powyżej została skojarzona ze zmienną srednia1
+            za pomocą operatora przypisania =.
+            Zadaniem tej funkcji jest obliczenie średniej arytmetycznej z elementów tablicy t.
+        */
+        console.log('srednia1(tablica) (ES5) = %s', srednia1(tablica));
+
+
+        // ES6 - FUNKCJA STRZAŁKOWA
+        /* UWAGA
+            Jeżeli definicja funkcji strzałkowej zawiera wiele linii - instrukcji
+            oraz 2 lub więcej parametrów, wówczas należy użyć składni:
+                (parametry) => {
+                    zestaw instrukcji;
+                    return wyrażenie;
+                }
+        */
+
+        // Definicja funkcji strzałkowej:
+        const srednia2 = (t) => {
+            let sumaEl = 0;
+            for (let element of t)
+                sumaEl += element;
+            return sumaEl / t.length;
+        }
+        console.log('srednia2(tablica) (ES6) = %s', srednia2(tablica));
+    </script>   
+</body>
+</html>

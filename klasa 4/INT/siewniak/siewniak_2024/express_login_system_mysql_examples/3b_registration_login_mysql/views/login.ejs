@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Formularz logowania</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h2> Formularz logowania </h2>
+
+    <form method="post" action="/login">
+        <input type="text" placeholder="Nazwa użytkownika" name="username" required> <br />
+        <input type="password" placeholder="Hasło" name="password" required> <br />
+
+        <button type="submit"> Zaloguj </button> <br />
+    </form>
+
+    <!-- Wstrzyknięcie na stronę kodu JS: -->
+    <h4><%=(typeof alertMsg!='undefined')? alertMsg : '' %></h4>
+</body>
+</html>

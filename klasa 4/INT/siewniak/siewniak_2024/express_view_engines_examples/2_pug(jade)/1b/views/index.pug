@@ -1,0 +1,60 @@
+doctype html
+// UWAGA
+// Pug traktuje pierwsze słowo każdej linii jako znacznik HTML.
+// Kolejne słowa w takim wierszu są traktowane, jako tekst zawarty wewnątrz znacznika.
+
+// Znacznik z atrybutem:
+html(lang="pl")
+    head
+        // UWAGA
+        // W Pug (podobnie jak w jade) nie stosuje się tagów/znaczników zamykających.
+        // Znaczniki można oczywiście zagnieżdżać.
+        // W takim przypadku, zamiast tagów zamykających należy stosować wcięcia.
+        title Polska ciężarówka Jelcz
+        // Znacznik z atrybutem:
+        meta(charset="UTF-8")
+        // Znacznik z wieloma atrybutami href, rel oraz type:
+        link(
+            href="./css/style.css"
+            rel="stylesheet"
+            type="text/css"
+        )
+        // UWAGA
+        // Ścieżka do pliku statycznego style.css została określona jako względna
+        // w odniesieniu do foldera /public (czyli roota dla plików statycznych).
+    body
+        // Znacznik posiadający identyfikator CSS:
+        div#container
+            // Jade oferuje skróconą (uproszczoną) postać zapisu znaczników
+            // z atrybutami id oraz class - jak powyżej.
+
+            h1 Polska ciężarówka marki Jelcz w latach 70-tych XX wieku
+            h4 Rodzina Jelcz 300:
+            ul
+                // Znaczniki należące do klasy li:
+                li.li 315
+                li.li 316
+                // Znacznik należący do klasy li posiadający identyfikator jelcz317:
+                li#jelcz317.li 317
+            // Znacznik z wieloma atrybutami HTML:
+            img(
+                src="./images/jelcz.jpg"
+                alt="Jelcz 317D"
+            )
+            // UWAGA
+            // Ścieżka do pliku statycznego jelcz.jpg została określona jako względna
+            // w odniesieniu do foldera /public, jako roota dla plików statycznych.
+            br
+            small(style="font-style: Italic;").
+                Jelcz 317D
+                (źródło: Zdzisław Podbielski. Samochody ciężarowe, specjalne i autobusy.
+                Instytut Wydawniczy "NASZA KSIĘGARNIA", Warszawa 1988.)
+            p.
+                Jelcz 317 to ciągnik siodłowy. Bez turbosprężarki osiągał moc 200KM
+                (moment obrotowy 743Nm), a z turbo - 240KM (883Nm).
+            // UWAGA
+            // Dodanie kropki po nazwie znacznika oznacza, że Jade będzie traktował wszystko
+            // wewnątrz tego znacznika jako zwykły tekst
+            // Innymi słowy, dodanie kropki po nazwie znacznika powoduje,
+            // że Jade nie traktuje tego słowa jako nazwy znacznika
+            p Dla porównania: radziecki Kamaz 5410: 210KM (637Nm).

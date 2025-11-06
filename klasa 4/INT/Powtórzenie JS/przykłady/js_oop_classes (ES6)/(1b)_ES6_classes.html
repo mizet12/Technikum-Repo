@@ -1,0 +1,71 @@
+﻿<!--ECMAScript 2015 (ES6). PROGRAMOWANIE OBIEKTOWE.
+    Definicja klasy w formie deklaracji.
+    
+    © Piotr Siewniak, wersja: 30.IX.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 2015 (ES6) - klasy. </title>
+    <meta charset="UTF-8">
+</head>
+<body>   
+    <script>
+        // Definicja klasy Kolo w formie deklaracji:
+        class Kolo  {
+            // Deklaracja konstruktora:
+            constructor(r) {
+                // Deklaracja i inicjalizacja właściwości instancyjnej _r:
+                this._r = r;
+
+                // Definicja metody instancyjnej:
+                this.obwodKolo = function() {
+                    return (2 * Math.PI * this._r);
+                }                
+                /* UWAGA
+                    Jak widać powyżej, konstruktor może zawierać również definicje metod instancyjnych.
+
+                    Tutaj:
+                    metodę obwodKolo() zdefiniowano przy wykorzystaniu wyrażenia funkcyjnego (function expression)
+                    - funkcji anonimowej (anonymous function).
+                   */
+            }                       
+
+            // Deklaracja metody instancyjnej na zewnątrz konstruktora:
+            poleKolo() {
+                return (Math.PI * Math.pow(this._r, 2));
+            }  
+
+            /* UWAGA
+                W ogólności, metody instancyjne mogą być definiowane zarówno wewnątrz konstruktora,
+                jak również niezależnie od konstruktora.
+              */
+        }
+
+        // Utworzenie obiektu kolo (jako instancji klasy Kolo) i inicjalizacja jego właściwości _r:
+        const kolo = new Kolo(1);
+        /* UWAGA
+            Utworzenie obiektu kolo następuje jako skutek wywołania konstruktora klasy Kolo.
+            Właściwość _r zostaje zainicjowana wartością 1 poprzez podanie argumentu wywołania konstruktora.
+         */
+        
+       // Wykorzystanie właściwości promien:
+        console.log("kolo._r:", kolo._r);
+        
+        // Wywołanie metod instancyjnych:
+        console.log("kolo.poleKolo():", kolo.poleKolo());
+        console.log("kolo.obwodKolo():", kolo.obwodKolo());
+
+        /* UWAGA
+            Klasy zdefiniowane za pomocą deklaracji nie podlegają mechanizmowi hoistingu.
+            Tym samym, aby można było utworzyć obiekt, jako instancję danej klasy, należy ją wcześniej zdefiniować.
+
+            Stanowi to różnicę względem definicji funkcji w formie deklaracji, która podlega hoistingowi.
+            Tym samym, wywołanie funkcji może się znajdować w kodzie powyżej jej deklaracji.
+         */
+    </script>
+
+    <h1> JavaScript ES6: deklaracja klasy (class declaration) </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) ... </h4>
+</body>
+</html>

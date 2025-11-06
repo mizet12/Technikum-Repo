@@ -1,0 +1,47 @@
+﻿<!--ECMAScript 2015 (ES6): PROGRAMOWANIE OBIEKTOWE
+    Definicja klasy w postaci deklaracji.
+    
+    © Piotr Siewniak, wersja: 30.IX.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 6 - deklaracja klasy. </title>
+    <meta charset="UTF-8">
+</head>
+<body>   
+    <script>
+    
+        class Osoba  {  
+            constructor(imie, nazwisko) {
+                this._imie = imie;
+                this._nazwisko = nazwisko;
+            }            
+
+            daneOsoba() {
+                return `Imię: ${this._imie}, nazwisko: ${this._nazwisko}`;
+            }  
+
+            daneImie = function() {
+                return this._imie;
+            }
+            daneNazwisko = function() {
+                return this._nazwisko;
+            }
+        }
+
+        const imie1 = "Piotr";
+        const nazwisko1 = "Siewniak";
+        
+        const osoba1 = new Osoba(imie1, nazwisko1);
+        
+        console.log("Imię: %s, nazwisko: %s", osoba1._imie, osoba1._nazwisko);
+
+        console.log("osoba1.daneOsoba():", osoba1.daneOsoba());
+        console.log("Imię: %s, nazwisko: %s", osoba1.daneImie(), osoba1.daneNazwisko());
+    </script>
+
+    <h1> JavaScript ES6: deklaracja klasy (class declaration) </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) ... </h4>
+</body>
+</html>

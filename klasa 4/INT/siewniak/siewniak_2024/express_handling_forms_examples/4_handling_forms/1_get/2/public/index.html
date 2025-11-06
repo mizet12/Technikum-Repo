@@ -1,0 +1,30 @@
+<!--NODE EXPRESS - OBSŁUGA FORMULARZY (HANDLING FORMS).
+    Metoda HTTP GET.
+
+    © Piotr Siewniak, wersja: 22.II.2022 r.
+-->
+
+<!--UWAGA
+    Przed uruchomieniem tego kodu należy najpierw uruchomić serwera aplikacji (server.js).
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - HTTP GET Method </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h4>Wprowadź dane samochodu:</h4>
+    <form action="http://127.0.0.1:8023/data" method="GET">
+        <!--Dane zostaną przesłane za pomocą metody HTTP GET na adres URL:
+            http://127.0.0.1:8093/data
+        -->
+        Marka <input type="text" name="marka">  <br />
+        Model <input type="text" name="model"> <br />
+        Rok produkcji <input type="number" name="rok_produkcji"> <br />
+        Cena <input type="number" name="cena"> <br />
+
+        <input type="submit" value="Wyślij">
+    </form>
+</body>
+</html>

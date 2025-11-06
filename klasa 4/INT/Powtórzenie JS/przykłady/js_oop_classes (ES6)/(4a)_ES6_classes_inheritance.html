@@ -1,0 +1,76 @@
+﻿<!--ECMAScript 2015 (ES6). Programowanie obiektowe.
+    Mechanizm dziedziczenia (inheritance).
+    
+    © 2017-2019 Piotr Siewniak, wersja: 30.IX.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 6 - klasy, mechanizm dziedziczenia. </title>
+    <meta charset="UTF-8">
+
+    <script>
+        class Osoba {
+            constructor(imie, nazwisko) {
+                this._imie = imie;
+                this._nazwisko = nazwisko;
+            }
+            daneOsoba() {
+                return `imię: ${this._imie}, nazwisko: ${this._nazwisko}`;
+            }
+        }
+        class Uczen extends Osoba {
+            constructor(imie, nazwisko, klasa) {
+                super(imie, nazwisko);
+                this._klasa = klasa;
+            }
+            daneUczen() {
+                return `${super.daneOsoba()}, klasa: ${this._klasa}`;
+            }
+        }
+        /* UWAGA
+          * Klasa potomna Uczen dziedziczy od klasy bazowej Osoba:
+          * 1) dwie właściwości - _imie, _nazwisko;
+          * 2) metodę instancyjną daneOsoba().
+          */
+
+        // Definicja klasy potomnej Nauczyciel dla klasy bazowej Osoba:
+        class Nauczyciel extends Osoba {
+            constructor(imie, nazwisko, przedmiot) {
+                super(imie, nazwisko);
+                this._przedmiot = przedmiot;
+            }
+
+            daneNauczyciel() {
+                return `${super.daneOsoba()}, przedmiot: ${this._przedmiot}`;
+            }
+        }
+
+        // Definicja klasy Wychowawca, która stanowi klasę potomną dla klasy nauczyciel:
+        class Wychowawca extends Nauczyciel {
+            constructor(imie, nazwisko, przedmiot, klasa) {
+                super(imie, nazwisko, przedmiot);
+                this._klasa = klasa;
+            }
+
+            daneWychowawca() {
+                return `${super.daneNauczyciel()}, klasa: ${this._klasa}`;
+            }
+        }
+    </script>
+</head>
+<body>
+<script>    
+    // Utworzenie obiektu nauczyciel, jako instancji klasy Nauczyciel:
+    const nauczyciel = new Nauczyciel("Piotr", "Siewniak", "informatyka");
+    console.log(nauczyciel.daneNauczyciel());
+
+    // Utowrzenie obiektu klasy Wychowawca, należącego do klasy Wychowawca:
+    const wychowawca = new Wychowawca("Edyta", "Siewniak", "informatyka", "4A");
+    console.log(wychowawca.daneWychowawca());
+</script>
+
+    <h1> JavaScript - klasy </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>

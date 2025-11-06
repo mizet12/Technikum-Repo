@@ -1,0 +1,113 @@
+﻿<!--ECMAScript 2015 (ES6) - OBJECT ORIENTED PROGRAMMING    
+    Mechanizm dziedziczenia (inheritance).
+    Polimorfizm (polymorphism).
+    
+    © 2017-2019 Piotr Siewniak, wersja 19.II.2018 r. 
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> JavaScript - klasy: mechanizm dziedziczenia, polimorfizm. </title>
+    <meta charset="UTF-8">
+    <script>
+        // Definicja klasy bazowej:
+        class Osoba {
+            // Definicja konstruktora klasy bazowej:
+            constructor(imie, nazwisko) {
+                // Deklaracja (i inicjacja właściwości):
+                this._imie = imie;
+                this._nazwisko = nazwisko;
+            }
+            // Definicja metody instancyjnej klasy bazowej:
+            zwrocDane() {
+                return `imię: ${this._imie}, nazwisko: ${this._nazwisko}`;
+            }
+        }
+
+        // Definicja klasy potomnej Uczen dla klasy bazowej Osoba:
+        class Uczen extends Osoba {
+            // Definicja konstruktora klasy potomnej:
+            constructor(imie, nazwisko, klasa) {
+                // Wywołanie konstruktora klasy bazowej (tj. klasy Osoba):
+                super(imie, nazwisko);
+                // Deklaracja właściwości _klasa:
+                this._klasa = klasa;
+            }
+            // Definicja metody instancyjnej klasy potomnej o takiej samej nazwie
+            // jak w klasie bazowej - mechanizm polimorfizmu:            
+            zwrocDane() {
+                return `${super.zwrocDane()}, klasa: ${this._klasa}`;
+            }
+        }
+        /* UWAGA
+         * Klasa potomna Uczen dziedziczy od klasy bazowej Osoba dwie właściwości - 
+         * _imie i _nazwisko;
+         * Z kolei metoda zwrocDane() z klasy bazowej została nadpisana (overriding)
+         * w klasie potomnej przez metodę o tej samej nazwie, ale odmiennej implementacji
+         * - mechanizm polimorfizmu.
+         */
+
+        // Definicja klasy potomnej Nauczyciel dla klasy bazowej Osoba:
+        class Nauczyciel extends Osoba {
+            // Definicja konstruktora klasy potomnej:
+            constructor(imie, nazwisko, przedmiot) {
+                // Wywołanie konstruktora klasy bazowej:
+                super(imie, nazwisko);
+                // Inicjacja właściwości natywnej klasy Nauczyciel:
+                this._przedmiot = przedmiot;
+            }
+
+            // Definicja metody instancyjnej o takiej samej nazwie jak w klasie bazowej:
+            zwrocDane() {
+                return `${super.zwrocDane()}, przedmiot: ${this._przedmiot}`;
+            }
+
+            /* UWAGA
+             * Metoda zwrocDane() z klasy bazowej Osoba została nadpisana w klasie potomnej
+             * Nauczyciel - zachodzi zatem polimorfizm.
+             */
+        }
+
+        // Definicja klasy Wychowawca, która stanowi klasę potomną klasy Nauczyciel:
+        class Wychowawca extends Nauczyciel {
+            constructor(imie, nazwisko, przedmiot, klasa) {
+                super(imie, nazwisko, przedmiot);
+                this._klasa = klasa;
+            }
+
+            zwrocDane() {
+                return `${super.zwrocDane()}, klasa: ${this._klasa}`;
+            }
+
+            /* UWAGA
+             * Metoda zwrocDane() z klasy bazowej Nauczyciel została nadpisana w klasie 
+             * potomnej Wychowawca - mechanizm polimorfizmu.
+             */
+        }
+    </script>
+</head>
+<body>
+<script>    
+    // Utworzenie obiektu typu Nauczyciel:
+    const nauczyciel = new Nauczyciel("Piotr", "Siewniak", "informatyka");
+
+    console.log("DANE NAUCZYCIELA");
+    // Wywołanie metody instancyjnej zawartej w klasie Nauczyciel:
+    console.log(nauczyciel.zwrocDane());
+
+    // Utowrzenie obiektu należącego do klasy Wychowawca:    
+    const wychowawca = new Wychowawca("Edyta", "Siewniak", "informatyka", "4A");
+
+    /* UWAGA
+     * Klasa Wychowawca stanowi klasę potomną dla klasy Nauczyciel.
+     */
+
+    console.log("DANE WYCHOWAWCY");
+    // Wywołanie metody instancyjnej zawartej z klasy Wychowawca:
+    console.log(wychowawca.zwrocDane());
+</script>
+
+    <h1> JavaScript - klasy </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>

@@ -1,0 +1,5 @@
+1. Utworzyć bazę danych i tabelę - zaimportować do MySQL i wykonać komendy zawarte w pliku database.sql.
+
+2. Wyeksportować wszystkie moduły zawarte w folderze /routes.
+
+3. Uruchomić aplikację app.js.

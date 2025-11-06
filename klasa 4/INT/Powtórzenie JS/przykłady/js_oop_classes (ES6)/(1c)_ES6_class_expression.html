@@ -1,0 +1,56 @@
+﻿<!--ECMAScript 2015 (ES6). PROGRAMOWANIE OBIEKTOWE.
+    Definicja klasy w postaci wyrażenia klasowego (class expression).
+    
+    © Piotr Siewniak, wersja: 30.IX.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 6 - wyrażenie klasowe. </title>
+    <meta charset="UTF-8">
+</head>
+<body>   
+    <script>
+        // Deklaracja klasy Kolo w postaci wyrażenia klasowego (class expression):         
+        const Kolo = class {
+            /*UWAGA
+              * Klasa anonimowa (bez nazwy) została skojarzona ze zmienną o nazwie Kolo.
+              * W wyniku tego, ze zmiennej Kolo można korzystać w taki sam sposób,
+              * jak ze zwykłej klasy zdefiniowanej za pomocą deklaracji.
+              */       
+            
+            // Definicja metody statycznej:
+            static classInfo() {
+                return "© Piotr Siewniak";
+            }                        
+            
+            // Definicja konstruktora:
+            constructor (r) {
+                this._r = r;
+            }           
+            // Definicje metod dostępowych (instancyjnych):
+            obwodKolo() {
+                return (2 * Math.PI * this._r);
+            }
+            poleKolo() {
+                return Math.PI * Math.pow(this._r, 2);
+            }
+        }
+        
+        // Wywołanie metody statycznej classInfo():
+        console.log(`Informacje: ${Kolo.classInfo()}`);
+                       
+        // Utworzenie obiektu klasy Kolo połączone z inicjalizacją właściwości _r:
+        const kolo = new Kolo(1);
+
+        // Wykorzystanie właściowści:
+        console.log("kolo._r:", kolo._r);
+        // Wywołanie metod instancyjnych:
+        console.log("kolo.poleKolo():", kolo.poleKolo());
+        console.log("kolo.obwodKolo():", kolo.obwodKolo());
+    </script>
+
+    <h1> JavaScript - definicja klasy w formie wyrażenia klasowego </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) ... </h4>
+</body>
+</html>

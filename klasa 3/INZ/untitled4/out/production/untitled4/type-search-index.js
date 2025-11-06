@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"biuro","l":"Czas"},{"p":"biuro","l":"Data"},{"p":"biuro","l":"Klient"},{"p":"biuro","l":"Main"},{"p":"biuro","l":"Wycieczka"},{"p":"biuro","l":"Wykupione"}];updateSearchResults();

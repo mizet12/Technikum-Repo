@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - EJS </title>
+    <meta charset="UTF-8">
+
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <!--UWAGA
+        Położenie pliku CSS zostało określone względem katalogu /public, który został zdefiniowany w aplikacji,
+        jako folder zawierający zasoby publiczne.
+    -->
+    <style type="text/css">
+        img {
+            width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <%- include('../partials/header'); %>
+        </header>
+        <!--UWAGA
+            Funkcja include() służy do wstawiania na stronę HTML części składowej (porcji, kawałka)
+            szablonu strony WWW, np. zawartości nagłówka, stopki itp.
+            Zawartość ta stanowi dynamiczną zawartość (dynamic content) szablonu (widoku).
+
+            Funkcję include() umieszcza się wewnątrz literału szablonowego (template literal).
+        -->
+        <main class="main">
+            <h3> Ciężkie wywrotki 3-osiowe: </h3>
+            <ul>
+                <li>Jelcz W640</li>
+                <li>Steyr 1490</li>
+                <li>Tatra 148</li>
+                <li>Berliet GBH-12</li>
+            </ul>
+            <img src="./images/jelcz.jpg" alt="Jelcz W640" /> <br />
+            <!--UWAGA
+                Położenie pliku JPG zostało określone względem katalogu /public zdefiniowanego w aplikacji,
+                jako folder zawierający zasoby publiczne.
+            -->
+            <small>
+                <span class="image_title">Jelcz W640</span>
+                (źródło: Zdzisław Podbielski. Samochody ciężarowe, specjalne i autobusy.
+                Instytut Wydawniczy "NASZA KSIĘGARNIA", Warszawa 1988)
+            </small> <br />
+        </main>
+        <footer class="footer">
+            <%- include('../partials/footer'); %>
+        </footer>
+        <!--UWAGA
+            Powyżej wstawiono na stronę zawartość pliku footer.ejs, jako jej dynamiczną zawartość.
+        -->
+    </div>
+</body>
+</html>

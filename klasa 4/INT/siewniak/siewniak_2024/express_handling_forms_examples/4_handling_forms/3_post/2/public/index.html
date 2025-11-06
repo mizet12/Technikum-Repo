@@ -1,0 +1,29 @@
+<!--NODE EXPRESS
+    Obsługa formularzy. Metoda HTTP POST.
+
+    © Piotr Siewniak, wersja: 22.II.2022 r.
+-->
+
+<!--UWAGA
+    Przed wykonaniem tego kodu należy najpierw uruchomić serwera aplikacji (plik .js).
+-->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - HTTP POST Method </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h4> Podaj długości boków prostokąta: </h4>
+    <form action="http://127.0.0.1:8040/results" method="POST">
+        <!--Dane pobrane z formularza zostaną przesłane za pomocą metody HTTP POST
+            na adres http://127.0.0.1:8010/results
+        -->
+        Pierwszy bok <input type="number" name="bok_1"> <br />
+        Drugi bok <input type="number" name="bok_2"> <br />
+
+        <input type="submit" value="Wyślij">
+    </form>
+</body>
+</html>

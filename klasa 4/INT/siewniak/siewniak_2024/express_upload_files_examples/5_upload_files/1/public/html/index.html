@@ -1,0 +1,30 @@
+<!--NODE EXPRESS
+    Obsługa formularzy. Metoda HTTP POST.
+    Upload pojedynczego pliku.
+
+    © Piotr Siewniak, wersja: 24.II.2022 r.
+-->
+
+<!--UWAGA
+    Przed wykonaniem tego kodu należy najpierw uruchomić serwera aplikacji app.js.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - HTTP POST Method: Upload Files </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h4> Upload plików </h4>
+    <form   method="post"
+            action="http://127.0.0.1:8034/upload"
+            enctype="multipart/form-data">
+
+        Wybierz plik: <input type="file" name="file" /> <br />
+
+        <input type="submit" value="Wyślij" />
+    </form>
+</body>
+</html>

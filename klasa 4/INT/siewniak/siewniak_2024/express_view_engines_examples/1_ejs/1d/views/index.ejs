@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - EJS </title>
+    <meta charset="UTF-8">
+
+    <style type="text/css">
+        .container{
+            font-family: Tahoma;
+            font-size: 1em;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4> DANE SAMOCHODU </h4>
+        <!-- Osadzenie kodu JavaScript - instrukcji warunkowej if-else:-->
+        <% if ((marka != '') && (model != ''))  { %>
+        <!--UWAGA
+            Zmienne marka i model w kodzie JS stanowią dane dynamiczne, które zostały przesłane
+            z serwera aplikacji do pliku widoku (poprzez wywołanie metody res.render()).
+        -->
+            <p> Marka: <%=marka%>, model: <%=model%> </p>
+            <!--UWAGA
+                Jeśli z serwera aplikacji zostały przesłane kompletne dane samochodu (marka i model),
+                wówczas dane te są wstrzykiwane do kodu HTML i wysłane do klienta w statycznym kodzie HTML
+                (są prezentowane po stronie klienta). Dane te nie są znane z góry (są to dane dynamiczne).
+            -->
+        <% }
+            else { %>
+            <p class="error">Uwaga! Dane samochodu nie zostały określone!</p>
+            <!--UWAGA
+                Jeśli dane samochodu nie zostały w pełni określone w aplikacji i tym samym do pliku widoku
+                zostaną przesłane niekompletne dane, wówczas do klienta jest przesyłany komunikat kontrolny.
+            -->
+        <% }
+        %>
+    </div>
+</body>
+</html>

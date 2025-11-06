@@ -1,0 +1,84 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    Podejście klasyczne (prototypy). Mechanizm dziedziczenia, polimorfizm.
+     
+    © Piotr Siewniak, 2018, wersja: 15.II.2018 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Inheritance, polymorphism </title>
+    <meta charset="UTF-8">    
+</head>
+<body>   
+    <script>
+        // Definicja konstruktora typu bazowego (rodzica):
+        function Osoba(imie, nazwisko) {
+            // Definicje właściwości regularnych:
+            this._imie = imie;
+            this._nazwisko = nazwisko;
+            // Definicja metody:
+            this.zwrocDane = function () {
+                return ("imie: " + this._imie + ", nazwisko: " + this._nazwisko);
+            }
+        }
+
+        // Definicja konstruktora typu pochodnego Nauczyciel:
+        function Nauczyciel(przedmiot) {
+            // Definicja właściwości:
+            this._przedmiot = przedmiot;
+            // Definicja metody instancyjnej:
+            this.zwrocPrzedmiot = function () {
+                return ("przedmiot: " + this._przedmiot);
+            }
+        }
+        // Dodanie właściwości i metod należących do typu bazowego Osoba
+        // do prototypu (obiektu prototypowego) typu potomnego Nauczyciel:
+        Nauczyciel.prototype = new Osoba();
+        /* UWAGA
+            Dodanie do prototypu typu pochodnego Nauczyciel właściwości i metod
+            należących do typu bazowego Osoba oznacza załączenie mechanizmu
+            dziedziczenia.
+        */
+         
+        // Utworzenie obiektu nauczyciel, należącego do typu pochodnego Nauczyciel:
+        var nauczyciel = new Nauczyciel();
+        // Inicjalizacja właściwości obiektu nauczyciel:
+        nauczyciel._imie = "Jan";
+        nauczyciel._nazwisko = "Kowalski";
+        nauczyciel._przedmiot = "elektronika";
+       
+        // Wyświetlenie zawartości obiektu nauczyciel:
+        console.log("Obiekt nauczyciel: \n", nauczyciel);
+        // Wykorzystanie metody odziedziczonej od typu Osoba:
+        console.log(nauczyciel.zwrocDane());
+        // Wykorzystanie metody natywnej dla typu Nauczyciel:
+        console.log(nauczyciel.zwrocPrzedmiot());
+
+
+        // Definicja konstruktora typu pochodnego Uczen:
+        function Uczen(klasa) {
+            this._klasa = klasa;
+            this.wyswietlKlase = function () {
+                return ("klasa: " + this._klasa);
+            }
+        }
+
+        // Dodanie właściwości i metod należących do typu bazowego Osoba
+        // do prototypu typu potomnego Uczen
+        Uczen.prototype = new Osoba();
+
+        // Utworzenie obiektu uczen należacego to typu pochodnego Uczen:
+        var uczen = new Uczen();
+        // Inicjalizacja właściwości obiektu nauczyciel:
+        uczen._imie = "Adam";
+        uczen._nazwisko = "Nowak";
+        uczen._klasa = "4A";
+
+        // Wyświetlenie zawartości obiektu uczen:
+        console.log("Obiekt uczen: \n", uczen);
+        // wykorzystanie metod typu bazowego i pochodnego:
+        console.log(uczen.zwrocDane());
+        console.log(uczen.wyswietlKlase());
+    </script>
+</body>
+</html>

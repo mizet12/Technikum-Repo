@@ -1,0 +1,65 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    Podejście klasyczne (prototypy). Mechanizm dziedziczenia, enkapsulacja, polimorfizm.
+
+    © Piotr Siewniak, 2018, wersja: 15.II.2018 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 5.1 - gettery i settery. </title>
+    <meta charset="UTF-8">
+    <script>
+        // Definicja konstruktora obiektu typu Kolo:
+        function Kolo(r) {
+            // Deklaracja właściwości:
+            this._r = r;
+            
+            // Deklaracja metody instancyjnej:
+            this.poleKolo = function() {
+                return (Math.PI * Math.pow(this._r, 2));
+            }            
+        }
+        
+        // Modyfikacja prototypu typu Kolo:
+        Kolo.prototype = {  
+            // Definicja gettera:
+            get promien() {
+                return this._r;
+            },
+            // Definicja settera:
+            set promien(r) {
+                if (isNaN(r)) {
+                    console.log('Uwaga błąd!')
+                } else if (r >= 0) {
+                         this._r = r;
+                       }
+            },
+            // Definicja metody instancyjnej:
+            obwodKolo() {
+                return (2 * Math.PI * this._r);
+            }
+        };         
+    </script>
+</head>
+<body>   
+    <script>
+        // Utworzenie obiektu typu Kolo:
+        const kolo1 = new Kolo(1);
+        
+        // Wykorzystanie gettera promien obiektu kolo1:
+        console.log("kolo1.promien: ", kolo1.promien);
+        
+        // Wykorzystanie metody dostępowej, zdefiniowanej w konstruktorze obiektu:
+        console.log("kolo1.poleKolo(): ", kolo1.poleKolo());
+        // Wykorzystanie metody dostępowej, zdefiniowanej w prototypie obiektu:
+        console.log("kolo1.obwodKolo(): ", kolo1.obwodKolo());
+        
+
+        // Zmiana wartości właściwości _r obiektu kolo1 - wykorzystanie settera promien:
+        kolo1.promien = 2;
+        console.log("kolo1.promien: ", kolo1.promien);
+        console.log("kolo1.poleKolo(): ", kolo1.poleKolo());
+        console.log("kolo1.obwodKolo(): ", kolo1.obwodKolo());
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Counter4F.Views.AllCountersPage"
+             Title="Your Counters">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="Add_Clicked" IconImageSource="{FontImage Glyph='+', Size=22, Color=White}" />
+    </ContentPage.ToolbarItems>
+    <CollectionView x:Name="countersCollection" ItemsSource="{Binding Counters}" Margin="20" >
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="4" HeightRequest="100">
+                        <Button Text="-" Clicked="MinusButton_Clicked" Grid.Column="0" BackgroundColor="Red" FontSize="100"/>
+                        <Editor Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Placeholder="Podaj nazwe" Text="{Binding name, Mode=TwoWay}"></Editor>
+                        <Label Text="{Binding variable}" Grid.Column="2"  BackgroundColor="Gray" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Button Text="+" Clicked="PlusButton_Clicked" Grid.Column="3" BackgroundColor="Green" FontSize="100"/>
+                    </Grid>
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+    
+</ContentPage>

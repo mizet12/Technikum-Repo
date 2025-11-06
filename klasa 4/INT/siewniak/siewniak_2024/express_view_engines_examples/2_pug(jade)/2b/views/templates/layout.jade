@@ -1,0 +1,30 @@
+// PLIK WIDOKU ZAWIERAJĄCY SZABLON STRONY
+doctype html
+html(lang="pl")
+    head
+        title Node Jade Template Engine
+        meta(charset="UTF-8")
+        link(href="./css/style.css", rel="stylesheet", type="text/css")
+    body
+        header
+            // Dołączenie zewnętrznego pliku widoku szablonu:
+            include ./header.jade
+            // UWAGA
+            // Dyrektywa include pozwala na dołączenie do szablonu podstawowego określonego podszablonu.
+            //
+            // Dołączenie podszablonu można również zrealizować za pomocą dyrektywy
+            // != partial(plik_podszablonu/opcje)
+
+        main
+            // Wstawienie zawartości (bloku) pobranej z pliku widoku index.jade:
+            block content
+
+        footer
+            // Dołączenie zewnętrznego pliku widoku szablonu:
+            include ./footer.jade
+
+
+
+
+
+

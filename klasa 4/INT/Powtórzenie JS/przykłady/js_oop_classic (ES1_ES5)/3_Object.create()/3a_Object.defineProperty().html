@@ -1,0 +1,55 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE,
+    Podejście klasyczne. Enkapsulacja - metoda defineProperty().
+    
+    © Piotr Siewniak 2019, wersja: 19.XI.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> JavaScript - enkapsulacja </title>
+    <meta charset="UTF-8">
+</head>
+<body>   
+    <script>
+        // Definicja konstruktora typu obiektowego Osoba:
+        function Osoba(imie, nazwisko) {
+            this._imie = imie;
+            this._nazwisko = nazwisko;
+        }
+        // Utworzenie obiektu typu Osoba:
+        const uczen1 = new Osoba('Piotr', 'Siewniak');
+
+        // Dodanie getterów i setterów do istniejącego obiektu:
+        Object.defineProperty(uczen1, 'imie', {
+            get: function() {
+                return this._imie;
+            },
+            set: function(imie) {
+                this._imie = imie;
+            }
+        });
+
+        Object.defineProperty(uczen1, 'nazwisko', {
+            get: function() {
+                return this._nazwisko;
+            },
+            set: function(nazwisko) {
+                this._nazwisko = nazwisko;
+            }
+        })
+
+        // Prezentacja danych z obiektu - wykorzystanie getterów:
+        console.log("uczen1.imie: ", uczen1.imie);
+        console.log("uczen1.nazwisko: ", uczen1.nazwisko);
+
+        // Wykorzystanie settera:
+        uczen1.nazwisko = 'Bukowski';
+        // Prezentacja zmienionych danych z obiektu - wykorzystanie getterów:
+        console.log("uczen1.imie: ", uczen1.imie);
+        console.log("uczen1.nazwisko: ", uczen1.nazwisko);
+    </script>
+
+    <h1> Programowanie obiektowe w JavaScripcie - podejście klasyczne </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>

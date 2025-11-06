@@ -1,0 +1,16 @@
+body{
+    display: block;
+    align-items: center;
+    background-color: rgb(169, 169, 169);
+}
+#pros{
+    background-color: rgb(213, 213, 213);
+    width: 50%;
+    margin-top: 200px;
+    padding: 40px;
+}
+td{
+    border: 1px solid black;
+    height: 80px;
+    width: 200px;
+}

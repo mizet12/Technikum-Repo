@@ -1,0 +1,106 @@
+doctype html
+// Znacznik z atrybutem:
+html(lang="pl")
+    head
+        title Polska ciężarówka Jelcz
+        meta(charset="UTF-8")
+        link(href="./css/style.css", rel="stylesheet", type="text/css")
+        // UWAGA
+        // Poszczególne atrybuty w nazwiasach okrągłych oddziela się od siebie przecinkami.
+    body
+        // Znacznik posiadający identyfikator CSS:
+        div.container
+            // Jade (Pug) oferuje skróconą (uproszczoną) postać zapisu znaczników z atrybutami id oraz class - jak powyżej.
+            // Można również oczywiście stosować pełną notację: div(class='container')
+
+            // Zapis tekstu po nazwie znacznika:
+            h1
+                |Polska ciężarówka marki Jelcz
+                |w latach 70-tych XX wieku
+            // To samo można osiągnąć stosując kropkę po nazwie znacznika:
+            // h1.
+            //      Polska ciężarówka marki Jelcz
+            //      w latach 70-tych XX wieku
+            h4
+                |Rodzina Jelcz 300:
+            // lub
+            // h4 Rodzina Jelcz 300:
+            // lub
+            // h4.
+            //      Rodzina Jelcz 300:
+            ul
+                // Znaczniki należące do klasy li:
+                li.li 315
+                li.li 316
+                // Znacznik należący do klasy li posiadający identyfikator jelcz317:
+                li#jelcz317.li 317
+            img(
+                src="./images/jelcz.jpg"
+                alt="Jelcz 317D"
+            )
+            // Poszczególne atrybuty są od siebie oddzielone przecinkami.
+            // Można również stosować notację wieloliniową (bez przecinków) - jak powyżej:
+            br
+            small(style={"font-style": "Italic"}).
+                Jelcz 317D
+                (źródło: Zdzisław Podbielski. Samochody ciężarowe, specjalne i autobusy.
+                Instytut Wydawniczy "NASZA KSIĘGARNIA", Warszawa 1988.)
+            br
+            // JavaScript - kod inline:
+            - const n = 100;
+            - for (let i=1; i<=n; i++) {
+            span _
+            // UWAGA
+            // Kod JS może być naprzemienny z kodem Jade (Pug).
+            - }
+            // UWAGA
+            // Każda linia kodu JS powinna być poprzedzona znakiem -.
+            // Można również stosować inne konstrukcje, np.:
+            // :javascript
+            //      | if (warunek) {
+            //      |   zestaw instrukcji
+            //      | }
+            //      | inna instrukcja
+            //      | itd.
+
+            // Ciąg dalszy kodu inline JS:
+            - const jelcz317Moc = 200;
+            - const jelcz317Moment = 743;
+            p Dane Jelcza 317: moc =  #{jelcz317Moc}KM, moment obrotowy = #{jelcz317Moment}Nm
+            // UWAGA
+            // W linii powyżej do kodu Jade wstrzyknięto wartości stałych JavaScript
+
+            div
+                span#span
+
+            // Skrypt wbudowany:
+            script.
+                // UWAGA
+                // Dodanie kropki po nazwie znacznika powoduje, że Jade nie traktuje następnego słowa (słów)
+                // jako nazwy znacznikaznaczników (czyli jako kod Jade), ale jako zwykły tekst (tutaj: kod JS)
+                const jelcz317DMoc = 240;
+                const jelcz317DMoment = 883;
+                console.log("Dane Jelcza 317D:");
+                console.log("moc = ", jelcz317DMoc, "KM");
+                console.log("moment obrotowy = ", jelcz317DMoment, "Nm");
+
+                const span = document.getElementById("span");
+                span.innerHTML = "Dane Jelcza 317D (z turbospężarką): moc = "
+                    + jelcz317DMoc
+                    + "KM, moment obrotowy = "
+                    + jelcz317DMoment
+                    + "Nm";
+            // Wykorzystanie (dołączenie) skryptu zewnętrznego JS:
+            script(src='./js/script.js')
+            // UWAGA
+            // Plik JS jest plikiem statycznym. Dlatego też podana ścieżka odnosi się
+            // do foldera /public, zawierającego pliki statyczne.
+            // Folder ten został skonfigurowany (określony) w pliku server.js.
+            //
+            // UWAGA
+            // WYJŚCIE STANOWI KONSOLA PRZEGLĄDARKI, A NIE KONSOLA TERMINALA ŚRODOWISKA PROGRAMISTYCZNEGO!
+
+
+
+
+

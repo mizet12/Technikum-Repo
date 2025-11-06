@@ -1,0 +1,60 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    metoda Object.create(). Wykorzystanie prototypu w postaci literału.
+
+    © Piotr Siewniak 2018-..., wersja: 22.II.2018 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 5.1 - metoda Object.create(). </title>
+    <meta charset="UTF-8">
+    <script>
+        // Definicja obiektu prototypowego (wzorca):
+        const Auto = {
+            // Określenie właściwości:
+            _marka: "marka domyślna",
+            _model: "model domyślny",
+            // Definicja metody:
+            zwrocDane: function () {
+                return (this._marka + " " + this._model);
+            }
+        }
+        /* UWAGA
+            Obiekt prototypowy (wzorzec) zdefiniowano przy wykorzystaniu notacji literałowej.
+         */
+    </script>
+</head>
+<body>   
+    <script>                 
+        // Utworzenie obiektu na podstawie obiektu prototypowego Auto:
+        const auto1 = Object.create(Auto);
+        /* UWAGA
+            Argumentem metody create() powyżej jest obiekt Auto, pełniący rolę
+            prototypu (wzorca) typu obiektowego.
+        */
+        // Nadanie wartości właściwościom obiektu:
+        auto1._marka = "Volkswagen";
+        auto1._model = "Golf";
+
+        // Wykorzystanie właściwości i metod obiektu auto1:
+        console.log("auto1._marka: ", auto1._marka);
+        console.log("auto1._model: ", auto1._model);
+        console.log("auto1.zwrocDane(): ", auto1.zwrocDane());
+
+        // Utworzenie drugiego obiektu na podstawie obiektu prototypowego:  
+        const auto2 = Object.create(Auto);
+        auto2._marka = "Opel";
+        auto2._model = "Astra";
+        console.log("auto2.zwrocDane():", auto2.zwrocDane());
+
+        /* UWAGA
+         * Przy wykorzystaniu metody Object.create() można utworzyć dowolną liczbę obiektów
+         * zgodnych z zadanym wzorcem w postaci zdefiniowanego prototypu obiektu.
+         */ 
+    </script>
+
+    <h1> Programowanie obiektowe w JavaScripcie - podejście klasyczne </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>
+

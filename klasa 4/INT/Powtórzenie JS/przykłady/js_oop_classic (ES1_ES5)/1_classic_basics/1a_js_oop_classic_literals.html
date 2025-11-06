@@ -1,0 +1,32 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    Podejście klasyczne. Notacja literałowa.
+    
+    © Piotr Siewniak, wersja: 4.XI.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Obiekty w JavaScript </title>
+    <meta charset="UTF-8">
+</head>
+<body>    
+    <script>
+        // Definicja obiektu - notacja literałowa:
+        const student = {
+            imie: "Piotr",
+            nazwisko: "Siewniak",
+            wiek: 50,
+            zwrocDane: function () {
+                return (this.imie + " " + this.nazwisko + ", " + "wiek: " + this.wiek);
+            }
+        }
+      
+        // Prezentacja wartości wybranych właściwości:
+        console.log("Imię studenta: ", student.imie);
+        console.log("Nazwisko studenta: ", student.nazwisko);
+        
+        // Prezentacja wartości wszystkich właściwości obiektu - wykorzystanie metody instancyjnej:
+        console.log('Dane studenta: ', student.zwrocDane());
+    </script>
+</body>
+</html>

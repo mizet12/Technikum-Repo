@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - EJS </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h3> Wykaz loginów i stanowisk służbowych: </h3>
+
+    <% users.forEach((item) => {%>
+        <p>
+            <b> <%=item.login%> </b>,
+            <%=item.stanowisko%>
+        </p>
+    <%}) %>
+    <!--UWAGA
+        Powyżej w kodzie widoku został osadzony kod JS - pętla forEach.
+        Wykorzystano daną dynamiczną (tablicę) users przesłaną z serwera aplikacji.
+    -->
+</body>
+</html>

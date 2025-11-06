@@ -1,0 +1,72 @@
+﻿<!--JavaScript ES5:     wyrażenia funkcyjne (function expressions),
+                        funkcje anonimowe (anonymous functions).
+
+    © Piotr Siewniak, wersja: 29.IX.2021 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> JAVASCRIPT: WYRAŻENIA FUNKCYJNE, FUNKCJE ANONIMOWE </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    /*  UWAGA
+        1. Wyrażenie lambda (lambda expression) to wyrażenie, którego zadaniem jest utworzenie funkcji.
+        2. Funkcja anonimowa (anonymous function) to funkcja, która nie posiada nazwy.
+
+        Wyrażenie funkcyjne (function expression) to funkcja anonimowa tworzona wewnątrz określonego wyrażenia,
+        np. przypisania do zmiennej lub wewnątrz innej konstrukcji językowej (syntax construct).
+
+        Funkcja anonimowa jest często nazywana po prostu wyrażeniem funkcyjnym (lub wyrażeniem lambda,
+        ewentualnie funkcją lambda).
+     */
+
+    
+    // Wywołanie funkcji f1() zdefiniowanej za pomocą deklaracji:
+    console.log("f1(-1) = %s", f1(-1)); // 1
+    /* UWAGA
+        Wywołanie funkcji zdefiniowanej za pomocą deklaracji może się znajdować w kodzie źródłowym
+        przed jej definicją. Wynika to z tego, że definicje funkcji w drodze deklaracji
+        są "wynoszone" (hoisted) na początek kodu w chwili rozpoczęcia wykonywania skryptu.
+    */
+
+    // Skopiowanie funkcji f1() do zmiennej f1_:
+    const f1_ = f1;
+    console.log("f1_(-1) = %s", f1_(-1)) //1;
+
+    // Deklaracja funkcji nazwanej (named function):
+    function f1(liczba) {
+        return (liczba >= 0) ? liczba : -liczba;
+    }
+    /* UWAGA
+        Funkcja nazwana f1 została zdefiniowana za pomocą deklaracji (function declaration)
+        lub inaczej: instrukcji funkcji (function statement).
+     */
+
+
+    // Utworzenie funkcji anonimowej:
+    const f2 = function(liczba) {
+        return (liczba >= 0) ? liczba : -liczba;
+    }
+    /* UWAGA
+        Funkcja anonimowa została utworzona za pomocą wyrażenia funkcyjnego (function expression). 
+        Funkcja ta została przypisana do zmiennej f2.
+
+        Definicje funkcji przy wykorzystaniu wyrażenia funkcyjnego NIE PODLEGAJĄ mechanizmowi hoistingu.
+        Tym samym, definicja takiej funkcji musi się zdajdować w kodzie przed jej wywołaniem.
+
+        Wynika to z tego, że wyrażenia funkcyjne są tworzone na bieżąco w trakcie wykonywania skryptu (runtime).
+     */
+    console.log("f2(-2) = %s", f2(-2)); // 2
+
+    // Skopiowanie zmiennej f2 do zmiennej f2_:
+    let f2_ = f2;
+    console.log("f2_ = %s", f2_(-2)); // 2
+
+    // Skopiowanie wywołania funkcji anonimowej skojarzonej ze zmienną f2_ do zmiennej f2__:
+    const f2__ = f2_(-2);
+    console.log("f2__ = %s", f2__); // 2
+</script>
+</body>
+</html>

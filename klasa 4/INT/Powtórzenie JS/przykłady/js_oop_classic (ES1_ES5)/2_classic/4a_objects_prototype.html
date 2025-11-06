@@ -1,0 +1,61 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    Podejście klasyczne (prototypy). Mechanizm dziedziczenia, polimorfizm.
+
+    © Piotr Siewniak, 2018, wersja: 15.II.2018 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Inheritance, polymorphism </title>
+    <meta charset="UTF-8">
+    <script>
+        const Auto = function(marka, model) {
+            this._marka = marka;
+            this._model = model;
+        }
+        Auto.prototype.zwrocDane = function () {
+            return this._marka + " " + this._model;
+        }
+    </script>
+</head>
+<body>   
+    <script>
+        // Definicja konstruktora typu pochodnego względem typu bazowego Auto:
+        const AutoOsobowe = function(marka, model, nadwozie) {
+            // Wywołanie konstruktora bazowego typu obiektowego Auto:
+            Auto.call(this, marka, model);
+            // Definicja właściwości _nadwozie:
+            this._nadwozie = nadwozie;
+        }
+        // Definicja metody wyswietlDane() skojarzonej z prototypem typu AutoOsobowe:
+        AutoOsobowe.prototype.zwrocDane = function () {
+            return this._marka + " " + this._model + " " + this._nadwozie;
+        }
+
+        // Definicja konstruktora typu pochodnego względem typu bazowego Auto:
+        const AutoCiezarowe = function (marka, model, rodzaj) {
+            // Wywołanie konstruktora bazowego typu obiektowego Auto:
+            Auto.call(this, marka, model);
+            // Definicja właściwości _nadwozie:
+            this._rodzaj = rodzaj;
+        }
+        AutoCiezarowe.prototype.zwrocDane = function () {
+            return this._marka + " " + this._model + " " + this._rodzaj;
+        }
+
+        // Utworzenie, inicjalizacja i przetwarzanie obiektu autoOsobowe:
+        const autoOsobowe = new AutoOsobowe("VW", "Golf", "hatchback");
+        // Wykorzystanie właściwości obiektu autoCiezarowe:
+        console.log(autoOsobowe._marka, autoOsobowe._model, autoOsobowe._nadwozie);
+        // Wykorzystanie metody należącej do obiektu autoOsobowe:
+        console.log(autoOsobowe.zwrocDane());
+
+        // Utworzenie, inicjalizacja i przetwarzanie obiektu autoCiezarowe:
+        const autoCiezarowe = new AutoCiezarowe("Man", "TGA", "wywrotka");
+        // Wykorzystanie właściwości obiektu autoOsobowe:
+        console.log(autoCiezarowe._marka, autoCiezarowe._model, autoCiezarowe._rodzaj);
+        // Wykorzystanie metody należącej do obiektu autoOsobowe:
+        console.log(autoCiezarowe.zwrocDane());
+    </script>
+</body>
+</html>

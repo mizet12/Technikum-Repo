@@ -1,0 +1,16 @@
+body {
+    font-family: Consolas;
+}
+
+h1 {
+    color: blue;
+}
+
+img {
+    width: 640px;
+}
+
+h4 {
+    font-family: "Times New Roman";
+    color: #ff0000; /* czerwony */
+}

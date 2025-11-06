@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    Podaj pierwszą długość prostokąta: <input type="text" id="a">
+    Podaj drugą długość prostokąta: <input type="text" id="b">
+    <button onclick="oblicz()">Oblicz</button>
+
+    <p id="wyniki"></p>
+
+    <script>
+        class prostokat{
+            constructor(){
+                this.a = Number(document.getElementById("a").value),
+                this.b = Number(document.getElementById("b").value)
+            }
+        }
+
+        function oblicz(){
+            prost = new prostokat();
+            
+
+            try{
+            if(prost.a > 0 && prost.b > 0){
+                    document.getElementById("wyniki").innerHTML = "Pole: " + (prost.a * prost.b) + "\nObwód: " + (prost.a * 2 + prost.b * 2);
+                    console.log(prost.a)
+            }else{
+                throw new InvalidNumberError("!Podaj poprawny Numer!")
+            }
+            if(typeof(prost.a) == 'number'&& typeof(prost.b) == 'number'){
+                document.getElementById("wyniki").innerHTML = "Pole: " + (prost.a * prost.b) + "\nObwód: " + (prost.a * 2 + prost.b * 2);
+            }else{
+                throw new NotNumberError("!Podaj liczby!")
+            }
+            if(prost.a !== "undefind" && prost.b !== "undefind"){
+                document.getElementById("wyniki").innerHTML = "Pole: " + (prost.a * prost.b) + "\nObwód: " + (prost.a * 2 + prost.b * 2);
+            }else{
+                throw new NoDataError("!Podaj wartości!")
+            }
+            }catch(err){
+                alert(err)
+            }
+        }
+
+        class NoDataError extends Error {
+        constructor(message) {
+            super(message);
+            this.name = "number";
+        }
+        }
+        class NotNumberError extends Error {
+        constructor(message) {
+            super(message);
+            this.name = "number";
+        }
+        }
+        class InvalidNumberError extends Error {
+        constructor(message) {
+            super(message);
+            this.name = "number";
+        }
+        }
+    </script>
+</body>
+</html>

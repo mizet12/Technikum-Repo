@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    Podaj pierwszą długość prostokąta: <input type="number" id="a">
+    Podaj drugą długość prostokąta: <input type="number" id="b">
+    <button onclick="oblicz()">Oblicz</button>
+
+    <p id="wyniki"></p>
+
+    <script>
+        class prostokat{
+            constructor(){
+                this.a = document.getElementById("a").value,
+                this.b = document.getElementById("b").value
+            }
+        }
+
+        function oblicz(){
+            prost = new prostokat();
+            document.getElementById("wyniki").innerHTML = "Pole: " + (prost.a * prost.b) + "\nObwód: " + (prost.a * 2 + prost.b * 2);
+        }
+    </script>
+</body>
+</html>

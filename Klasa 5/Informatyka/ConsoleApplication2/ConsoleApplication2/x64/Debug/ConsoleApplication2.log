@@ -1,0 +1,5 @@
+﻿  ConsoleApplication2.cpp
+C:\Users\mizet\OneDrive\Desktop\szkola\Klasa 5\Informatyka\ConsoleApplication2\ConsoleApplication2\ConsoleApplication2.cpp(9,6): warning C4101: "s": lokalna zmienna, do której nie istnieje odwołanie
+C:\Users\mizet\OneDrive\Desktop\szkola\Klasa 5\Informatyka\ConsoleApplication2\ConsoleApplication2\ConsoleApplication2.cpp(9,9): warning C4101: "h": lokalna zmienna, do której nie istnieje odwołanie
+C:\Users\mizet\OneDrive\Desktop\szkola\Klasa 5\Informatyka\ConsoleApplication2\ConsoleApplication2\ConsoleApplication2.cpp(9,28): warning C4101: "lh": lokalna zmienna, do której nie istnieje odwołanie
+  ConsoleApplication2.vcxproj -> C:\Users\mizet\OneDrive\Desktop\szkola\Klasa 5\Informatyka\ConsoleApplication2\x64\Debug\ConsoleApplication2.exe

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lista.Views.ProductView">
+    <StackLayout >
+        <Grid ColumnDefinitions="*,*,*,*,*,*,*" x:Name="Sproduct" BackgroundColor="Gray">
+            
+            <Button 
+                Text="Del" 
+                Clicked="DeleteButton_Clicked"
+                WidthRequest="1"
+                HeightRequest="1"
+                Grid.Column="0"/>
+            
+            <Label 
+                x:Name="name"
+                Text="{Binding Name}"
+                FontSize="Medium"
+                VerticalTextAlignment="Center"
+                Margin="10"
+                Grid.Column="1"/>
+
+            <Button
+                x:Name="minus"
+                Text="-"
+                Clicked="onminus"
+                CornerRadius="25"
+                Grid.Column="2"
+                BackgroundColor="red"
+                FontSize="30"/>
+
+            <Label
+                x:Name="quantity"
+                Text="{Binding Quantity}"
+                FontSize="Small" 
+                VerticalTextAlignment="Center"
+                Grid.Column="3"
+                HorizontalTextAlignment="Center"/>
+
+            <Label 
+                x:Name="unit"
+                Text="{Binding Unit}"
+                FontSize="Small" 
+                VerticalTextAlignment="Center"
+                Grid.Column="4"
+                HorizontalTextAlignment="Center"/>
+            
+            <Button
+                x:Name="plus"
+                Text="+"
+                Clicked="onplus"
+                CornerRadius="25"
+                Grid.Column="5"
+                BackgroundColor="green" 
+                FontSize="30"/>
+
+            <CheckBox 
+                IsChecked="{Binding IsPurchased}"
+                x:Name="check" 
+                CheckedChanged="CheckedChanged"
+                Grid.Column="6"/>
+            
+        </Grid>
+    </StackLayout>
+
+    
+</ContentView>

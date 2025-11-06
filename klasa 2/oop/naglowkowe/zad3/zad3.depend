@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1638204308 source:c:\users\komputer pc\desktop\szko³a\siewniak\naglowkowe\zad3\jednostki.cpp
+	"header.h"
+	<iostream>
+
+1638204240 c:\users\komputer pc\desktop\szko³a\siewniak\naglowkowe\zad3\header.h
+
+1638204247 source:c:\users\komputer pc\desktop\szko³a\siewniak\naglowkowe\zad3\main.cpp
+	<iostream>
+	"header.h"
+

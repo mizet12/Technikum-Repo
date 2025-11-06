@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        wysokość: <input type="number" id="height">
+        szerokość: <input type="number" id="width">
+        <button onclick="oblicz()">Oblicz</button>
+    
+
+
+    <script>
+        class prostokat{
+            constructor(){
+                this.height = document.getElementById("height").value,
+                this.width = document.getElementById("width").value
+            }
+        }
+
+        function oblicz(){
+           const prost = new prostokat();
+        console.log("pole:" + (prost.height * prost.width))
+        console.log("obwod: " + (prost.height * 2 + prost.width * 2))
+    }
+        
+    </script>
+</body>
+</html>

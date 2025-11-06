@@ -1,0 +1,153 @@
+Aktywności
+pojęcie aktywności
+cykl zycia i metody zwrotne
+deklaracja aktywności
+zachowanie stanu aktywności
+dziennik zdarzeń
+
+Aktywność 
+Aktywność - komponent w postaci ekranu aplikacji
+
+Zwykle jedna akywniość jest oznaczona jako główna i jest przezentowana użytkownikowi przy starcie aplikacji
+Aktywność może następnie uruchomić inną aktywnośćrealizującą określone działanie
+Przy starcie nowej aktywności poprzednia jest zatrzymywana ale system nie niszy jej lecz pozostawia ją na stosie (back stack)
+Nowa aktywność jest wrzucana na szczyt stosu i rozpoczyna działanie
+Gdy użytkownik wciśnie przycisk Back aktywność jest zdejmowanwa ze stosu i niszczona a poprzedniawznawia działanie - obsługa analogiczna jak dla kolejki LIFO
+
+Zadanie task jest zbiorem powiązanych logicznie aktwności
+Aktuwności mogą pochodzić z rożnych aplikacji
+
+Od momentu pojawienia się katywności na ekranie odo chwili jej zniknięcia przechodzi ona przez wiele faz stanowiących jej cykl życia
+O każdej zmianie stanu aktywności Android iformuje ją poprzez wywołania metod zwrotnych
+Aktywnośćtworzymy poprzez rozszerzenie klasy android.app.Activity oraz nadpisanie wybranych metod zwrotnych
+W praktyce rozszerza się wybrane podklasy np. andoidx.appcomponent.app.AppCompatActivity - w takiej sytuacji w pliku gradle.properties trzeba dodać parametr android.useAndroidX=true
+
+przykład aktywności
+import andoid.os.Bundle;
+import androidx.appcompat.app.AppCompatActibity;
+public class MainActivity extends AppCompatActivity {
+
+@Override
+public void onCreate(Bundle savedInstaceState){
+super.onCreate(savedInstaceState)
+setContentView(R.layout.activity_main);
+}
+}
+
+Aktywność może znadjować się w jednym z trzech stanów
+
+resumed/running - Aktywność jest procesem prerwszoplanowym z którym aktuanie pracuje użytkownik, aktywność jest widoczna i ma focus
+paused - stan w którym użtkownik pracuje z inną aktywnością ale ta jest nadal częściowo widoczna na ekranie. Aktywność jest wciąż "żywa" (obiekt nadal rezyduje w pamięci, przechowuje swój stan i jest przywiązany do menedżera okna). Aktywność nie ma fokusa i może zostać zniszczona
+stopped - aktywność nie jest widoczna na ekranie (pracuje w tle). aktywność jest "żywa" ale nie jest przywiązanado menedżera okna. aktywność nie ma focusa i może zostać zniszczona
+
+Metody zwrotne cyklu zycia aktywności
+protected void onCreate(Bundle savedInstanceState);
+protected void onStart();
+protected void onRestart();
+protected void onResume();
+protected void onPause();
+protected void onStop();
+protected void onDestroy();
+
+Metody Zwrotne
+onCreate - jest po raz pierwszy tworzona. Zwykle tu dokonuj się inicjalizacji utworzenia widoków, przypisania danych do list itp. poprzez obiekt Bundle można uzyskać dostęp do wcześniej utrwalonego stanu
+onStart - staje się widoczna dla użytkownika
+onResume - rozpoczyna interackcję z użtykownikiem, w tym momecie aktywność znajduje się na sczycie stosu
+onRestrart - zostaje wznowiona po uprzednim wstzymaniu
+onPause - zostaje wstrzymana , a system wznawia inną, typowo w tej metodzie należy stwierdzić i utrwalić niezapisane zmiany, zatrzymać animacje i inne czynności wykorzysujące czas procesora
+onStop - przestaje być widoczna dla użtykownika (została przesłonięta przez inną lub będzie niszczona)
+onDestroy - jest niszczona programowo (metoda finish) lub prze sysem stany te można rozróżnić za pomocą metody is Finishing
+
+Każdą aktywnośćnależy opisać w pliku manifestu za pomocą węzła <activity>
+Plik manifestu:
+<manifest...>
+<application...>
+<activity android:name=".ExampleActivity" />
+....
+</application ....>
+...
+</manifest>
+atrybuty andoid:name - nazwa klasy typu andoid.app.Activity
+inne atrybuty: android:label, android:icon, andoid:theme
+
+Węzeł <activity> może zawierać węzły <intent-filter> definiujące filtry intecji - określają one, jak inne komponenty mogą uruchomić aktyność
+Aktywność "główna", rozpoczynająca działanie aplikacji, powinna być zadeklarowana następująco:
+<activity andoid:name=".ExampleActivity" andoid:icon="@drawable/app_icon">
+<intent-filter>
+<action andoid:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
+
+Zachowanie stanu aktywności
+Gdy aktywnośćjest wstrzymana a następnie wznawiana jej stan jest zachowany gdyż obiekt cały czas rezduje w pamięci
+jeżeli system zniszczy aktywność np.aby odzyskać jej pamięć to po jej utworzeniu na nowo wszelkie zmiany dokonane wcześniej będą utracone
+Użytkownik nie jest świadomu tego że aktywność mogła ulec zniszczeniu. np. podczas zmiany oritencji ekranu bieżąca aktywność jest niszczona a nstępnie wznawiana
+Do utrwalenia stanu aktywności można wykorzysać metody zwrotne:
+protcted void onPause();
+protected void onSaveInstaceState(Bundle outState)
+W odróżnieniu od zdarzenia onPause zdarzenie onSaveInstaceState nie występuje przy zdjemowaniu aktywności ze stosu
+Stąd metoda:
+onPause - powina być używana do zachowania stanu o charakterze trwałym np. zapis danych do bazy danych
+onSaceInstanceState - służt do trwalenia stanu który nie wymaga docelowo trwalenia np. po planiowanym zakończeniu aktywności, przykładowo : warości pól instacyjnych
+Stan nietrwały może być przechowamy w podanej jako parametr mapie typu android.os.Bundle
+Klasa udostępnia szereg metod putXxx za pomocą których można zapełnić mapę(Xxx - nazwa typu parametru)
+Obiekt Bundle jest następnie podawany metodzie onCreate, w której może odtworzenie stanu (zapomocą metod getXxx)
+Do odtworzenia stanu można także wykorzystać metodę:
+protected void onRestoreInstanceState(Bundle savedInstanceState)
+Jeśli metoda onSaveInstanceState nie zostanie nadpisana to stan aktywności może być odtworzony w opraciu p implementację domyślną
+każdy widok (którego stan ma być utrwalony) musi mieć zdefiniowany unikalny identyfikator (android:id)
+można zablowkować możliwośc moryślnego trwalania stanu poprzez nadanie atrybutowi andoid:saveEnabled danego komponentu watości false ub wywołanei metody setSaveEnabled
+Zachowanie stanu aktywnoci z użyciem metody onSaveInstanceState nie jest rozwiązaniem ani uniwersalnum ani idealnym
+Do zachowania stanu obiektórw wykorzysuje ono serializację a więc jest kosztwone pod względem zajętości dysku i czasochłonne
+Jest dobrym rozwiązanie dla małych obiektów lub trwalania typów prostych
+Do zachowania stanu aktywności przy zmianie konfiguracji może też wykorzysać obiekty andoidx.lifecycle.ViewModel
+Ten mechanizm do przechowywania stanu wykorzysuje pamięć - rozwiązanie szybkie(można utrwalać też duże obiekty ale ograniczeniem jest dostępna pamkięć)
+w praktyce wykorzystuje się kombinacje różnych sposobów zachowywania stanu
+Obiekty ViewModel są autmatucznie zachowywane podczas zmian konfiguracji dzięki czemu orzechowywane w nich dane są natychmiast dostępne dla następnej instancji aktywnioości lub fragmentu
+Jeśli aktywność zostanie na nowo odtworzona to otrzyma tę samą instancję modelu, które została utwozona przez pierwszą aktywność
+po zakończeniu działania aktywności framework wywołuje metodę onCleared obiektu ViewModel aby miogął zwolnić zasoby
+Android posiada system logujący LogCat dostępny poprzez ADB lub z poziomu perspoektywy DDMS
+Pozwala na zbieranie i przeglądanie komunikatów systemowych i programowych
+Komuniktay można kierować progamowo z wyklorzystaniem klasy android.util.Log
+Komuniktaów typu VERBOSE należy używać tylko na teapie rozwoju aplikacji
+Dobrą praktyką jest zdefiniowanie dla komponentu stałej identyfikacyjnej
+private state final String TAG = "MainActivity"
+i konsekwentne jej używanie w metodach logujących
+Log.i(TAG, "Activity Stopped")
+
+Utwórz aktywnośćw której zostaną nadpisane wszyskie metody cyklu życia aktywności - ich zadaniem jest skierowanie odpowiedniego komunikatu do LogCat
+
+ĆWICZENIE 6.0
+Utwórz nowy projekt apliakcji androida o nazwie LifeCycle
+Utwórz aktywność w której zostaną nadpisane wszystkie metody cyklu życia aktywności - ich zadaniem jest skierowanie odpowiedniego komuniaktu do logcat'a
+Uruchom projekt i prześledź jakie metody są wywoływane w przypadku:
+zresetowania aktywności
+przesłonięcia bieżącej aktywności inną
+zniszczenia aktywności przez system a następnie jej odbudowania
+W dzienniku LogCat zdefiniuj filtr umożliwiający prezentację komuniaktów pochodzących tylko od przedefiniowanych metod
+Nadpisz w klasie aktywności metody umożliwiające zachowanie stanu i jego odtworzenie
+Sprawdź w jakich sytuacjach są one wywoływane
+
+ĆWICZENIE 6.10
+Utwórz nowy projekt aplickacji androida o nazwie Counter1
+Utwórz pole tekstowe na środku ekranu z początkową wartością 0
+Stwórz funkcjonalność zliczająca obroty ekranu(wszystkie przejścia z widoku pionowego do poziomego i z poziomego do pionowego jako jedna wartość)
+*Pamiętaj o utrwaleniu wartości
+
+Ćwiczenie 6.11
+Utwórz projekt aplikacji android o nazwie Counter2
+Utwórz dwa pola tekstowe na górze i dole ekranu tak aby każda z wartości była na śrdoku jednej połowy ekranu
+Stwórz funkcjonalność zliczającą ilość położeń ekranu w danej pozycji (np. gór pionowe położenie, dół poziome)
+Sprawdź czy uda ci się uzyskać wartości pomiędzy licznikami powyżej 1
+*Pamiętaj o utrwaleniu wartości
+
+ĆWICZENIE 6.20
+Utwórz projekt aplikacji android o nazwie ThrowDice1
+Utwórz dwa pola tekstowe na górze i dole ekranu tak aby każda z wartości była na środku jednej połowy ekranu
+Stwórz funckjonalność rzutu dwoma kostakami do gry: wyświtlającą dwie  losowe wartości po każdym obrocie ekranu, zakres wylosownaych wartości od 1 do 6
+
+ĆWICZENI 6.21
+Utwórz nowy projekt aplickaji androida o nazwie ThrowDice2
+Rozbuduj poprzedni projekt tak aby zapamiętane były ilości wylosowanych wartości. Tekst na erkanie rozmieść według własnego uznania uwzględniając inny widok dla położenia pionowego i poziomego
+*Pamiętaj o utrwaleniu wartości

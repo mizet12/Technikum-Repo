@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pl_app_name">Ćwiczenie 5.0 - Inicjały</string>
+    <string name="pl_welcome">Dzień dobry Polsko!</string>
+    <string name="pl_random">Losowa liczba</string>
+    <string name="pl_orientation">Orientacja</string>
+    <string name="pl_orientation_portrait">Pionowo</string>
+    <string name="pl_orientation_landscape">Poziomo</string>
+</resources>

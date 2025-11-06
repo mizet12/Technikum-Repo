@@ -1,0 +1,53 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    Podejście klasyczne. Notacja literałowa.
+    
+    © Piotr Siewniak, wersja: 4.XI.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Obiekty w JavaScript </title>
+    <meta charset="UTF-8">
+</head>
+<body>    
+    <script>
+        // Definicja pustego obiektu - notacja literałowa:
+         const student = {};
+        console.log("student = ", student);
+        /* UWAGA
+          * Pomimo tego, że definicje właściwości i metod obiektu student są zawarte w kodzie źródłowym
+          * poźniej (poniżej) - obiekt student zawiera już w tym miejscu wszystkie zdefiniowane właściwości
+          * właściwości oprócz tych, którym nie nadano wartości początkowych.
+          * Metody tego obiektu zdefiniowane w kodzie źródłowym później również stanowią jego integralne
+          * elementy członkowskie.
+          */
+        
+        // Definicja (deklaracja + inicjacja) właściwości:
+        student.imie = "Piotr";
+        student.nazwisko = "Siewniak";
+        student.wiek = 50;
+        
+        // Deklaracja właściwości (bez inicjacji):
+        student.plec;
+        /* UWAGA
+          * Zadeklarowana, ale niezainicjowana (czyli niezdefiniowana) właściwość 
+          * nie jest widziana w obiekcie!
+          */
+        console.log("student:", student);
+        console.log("student.plec: ", student.plec); // undefined
+            
+        // Definicja metody:
+        student.zwrocDane = function () {
+                return (this.imie + " " + this.nazwisko + ", " + "wiek: " + this.wiek);
+            
+        }
+        // Kontrolne wyświetlenie zawartości obiektu student:
+        console.log("student: ", student);
+
+        // Prezentacja danych:
+        console.log("student.imie: ", student.imie);
+        console.log("student.nazwisko: ", student.nazwisko);
+        console.log('student.zwrocDane(): ', student.zwrocDane());
+    </script>
+</body>
+</html>

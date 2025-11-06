@@ -1,0 +1,94 @@
+﻿<!--ECMAScript 2015 (ES6). Programowanie obiektowe.  
+    Hermetyzacja, inaczej: enkapsulacja (encapsulation).
+    
+    © 2017-2019 Piotr Siewniak, wersja: 30.IX.2019 r. 
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 6 - h ermetyzacja (enkapsulacja). </title>
+    <meta charset="UTF-8">
+</head>
+<body>   
+    <script>
+        class Osoba  {
+            constructor(value1, value2) {
+                this.imie = value1;
+                this.nazwisko = value2;
+            }
+
+            // Definicje getterów:
+            get imie() {
+                return this._imie;
+            }
+            get nazwisko() {
+                return this._nazwisko;
+            }
+            // Definicje setterów:
+            set imie(value) {
+                if (typeof(value) == "string") this._imie = value;
+                else this._imie = "error!";
+            }
+            set nazwisko(value) {
+                if (typeof(value) == "string") this._nazwisko = value;
+                else this._nazwisko = "error!";
+            }
+
+
+            // Getter zdefiniowany za pomoca słowa kluczowego get, które powoduje
+            // skojarzenie pseudo-właściwości personalia1 z funkcją dostępową do właściwości
+            // _imie i _nazwisko w trybie GET:
+            get personalia1() {
+                return this._imie + ' ' + this._nazwisko;
+            }
+            // Getter zdefiniowany za pomocą metody dostępowej:
+            personalia2() {
+                return this._imie + ' ' + this._nazwisko;
+            }
+
+
+            // Setter zdefiniowany za pomoca metody dostępowej:
+            nazwisko2(value) {
+                if (typeof(value) == "string") this._nazwisko = value;
+                    else this._nazwisko = "error!";
+            }
+        }
+
+        let imie1 = "Piotr";
+        let nazwisko1 = "Siewniak";
+        // Utworzenie obiektu jako instancji klasy Osoba:
+        let osoba1 = new Osoba(imie1, nazwisko1);
+
+        // Wykorzystanie getterów zdefiniowanych za pomocą słowa kluczowego get:
+        console.log("Imię: %s, nazwisko: %s",
+            osoba1.imie, // Piotr
+            osoba1.nazwisko //Siewniak
+        );
+
+        // Wykorzystanie gettera 'personalia1':
+        console.log('Dane personalne (personalia1: ', osoba1.personalia1);
+        // Wykorzystanie gettera 'personalia2():
+        console.log('Dane personalne (personalia2): ', osoba1.personalia2());
+    
+
+        // Zmiana wartości właściwości _imie - wykorzystanie settera zdefiniowanego
+        // za pomocą słowa kluczowego get:
+        osoba1.imie  = 'Piotrek';
+        console.log("Imię: %s, nazwisko: %s", 
+            osoba1.imie, // Piotrek
+            osoba1.nazwisko //Siewniak
+        );
+
+        // Zmiana wartości właściwości _nazwisko - wykorzystanie settera nazwisko2()
+        // zdefiniowanego za pomocą metody dostępowej:
+        osoba1.nazwisko2('Bukowski');
+        console.log("Imię: %s, nazwisko: %s",
+            osoba1.imie, // Piotrek
+            osoba1.nazwisko // Bukowski
+        );
+    </script>
+
+    <h1> JavaScript - klasy </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>

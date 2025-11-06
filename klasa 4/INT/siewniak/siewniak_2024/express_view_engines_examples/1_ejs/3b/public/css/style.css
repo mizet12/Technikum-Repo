@@ -1,0 +1,29 @@
+.container {
+    font-family: "Century Gothic";
+    width: 1024px;
+    margin: auto;
+    font-size: 1em;
+}
+
+.container > * {
+    padding: 15px;
+}
+.header, .footer {
+    background-color: gray;
+    color: white;
+    text-align: center;
+}
+.main {
+    background-color: lightgrey;
+    text-align: left;
+}
+small {
+    font-family: "Times New Roman";
+    font-style: italic;
+    font-size: 0.75em;
+}
+
+.image_title {
+    font-style: normal;
+    font-weight: bold;
+}

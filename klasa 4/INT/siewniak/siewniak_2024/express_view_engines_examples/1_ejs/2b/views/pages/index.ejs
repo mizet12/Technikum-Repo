@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - EJS </title>
+    <meta charset="UTF-8">
+
+    <style>
+        .start {
+            font-family: Verdana;
+        }
+        .info {
+            font-family: Tahoma;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="start"> Witaj <%= (user.imie).toUpperCase() %> </h1>
+    <!--UWAGA
+        Powyżej, do zawartości h1 jest wstrzykiwanaa dana dynamiczna user.imie przesyłana z serwera aplikacji
+        oraz został wztawiony kod JS (funkcja toUppercase()).
+    -->
+
+    <% if (user.stanowisko == 'nauczyciel') {%>
+        <p class="info"> Uwaga! Powinieneś wystawić oceny semestralne! </p>
+    <%} else {%>
+        <p class="info"> Uwaga! Nie jesteś nauczycielem! </p>
+    <%} %>
+    <!--UWAGA
+        Powyżej w kodzie widoku został osadzony kod JS - instrukcja warunkowa if-else.
+        Warunek został zdefiniowany przy wykorzystaniu danej dynamicznej user.stanowisko.
+    -->
+</body>
+</html>

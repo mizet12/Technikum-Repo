@@ -1,0 +1,9 @@
+Date 01
+napuisz program data-1 w zawierajacy klase prztmującą w konstruktorze dowolną datę w formie cyftowej wyśwuetlając datę w formie cyfrowej wświetlając datę w ormacie dzień miesiać rok oraz w nawiasie liczbę dni w danm roku 365 lub 366
+Date 02
+npisz kalsę przyjmującą w konstruktorze dowolną datę w formacie cufrowym lub cyfrowo słownym i wypusyjąct na wtjścuy date w jednym z tech formatw np. wejscie 12 03 2021 wyjscie 12 marca 2021
+Date 03
+napisz klase przyhmhącą w konstruktorze dwie daty i metodę oblicz\ający różnicę liczby dni miedzy nimi oraz metodę wyświetlającą wynik uwzględnij laa przestępne przetesyh program ywzględniając naspęujące daty
+17 marca 2024 z 17 luty 2024
+19 marca 2020 z 19 lutego 2024
+1 stycznia 1 z 31 grudnia 2021

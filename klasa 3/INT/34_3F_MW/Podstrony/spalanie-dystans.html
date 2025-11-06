@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../PlikiCSS/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <div id="pros">
+            Obliczanie Spalania<br>
+            <input type="text" id="in1" placeholder="km">
+            <input type="text" id="in2" placeholder="L"><br>
+            <button onclick="sp()">Oblicz</button><br>
+            <p></p>
+            <hr>
+            Oblicznie dystansu<br>
+            <input type="text" id="in11" placeholder="L/km">
+            <input type="text" id="in22" placeholder="L"><br>
+            <button onclick="dys()">Oblicz</button><br>
+            <p></p>
+            <hr>
+            Obliczanie paliwa<br>
+            <input type="text" id="in111" placeholder="L/km">
+            <input type="text" id="in222" placeholder="km"><br>
+            <button onclick="pal()">Oblicz</button><br>
+            <p></p>
+        </div>
+    </center>
+    <script>
+        function sp(){
+            let l1 = document.getElementById("in1").value;
+            let l2 = document.getElementById("in2").value
+            let p = document.querySelectorAll("p");
+            let uz = l1 / 100;
+
+            p[0].innerHTML = "Spalanie " + (l2 * uz) + "L/100km";
+        }
+        function dys(){
+            let l1 = document.getElementById("in11").value;
+            let l2 = document.getElementById("in22").value;
+            let p = document.querySelectorAll("p");
+
+            p[1].innerHTML = "Dystans " + (l2 / l1) + "km";
+        }
+        function pal(){
+            let l1 = document.getElementById("in111").value;
+            let l2 = document.getElementById("in222").value;
+            let p = document.querySelectorAll("p");
+
+            p[2].innerHTML = "Paliwo " + (l1 * l2) + "L";
+        }
+    </script>
+</body>
+</html>

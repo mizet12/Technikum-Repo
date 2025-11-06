@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1638199745 source:c:\users\komputer pc\desktop\szko³a\siewniak\naglowkowe\zad1\main.cpp
+	<iostream>
+	"header.h"
+
+1638199669 c:\users\komputer pc\desktop\szko³a\siewniak\naglowkowe\zad1\header.h
+
+1638199725 source:c:\users\komputer pc\desktop\szko³a\siewniak\naglowkowe\zad1\prostopadloscian.cpp
+	"header.h"
+	<iostream>
+

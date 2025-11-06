@@ -1,0 +1,47 @@
+#main{
+    background-color: #8BB381;
+}
+#banner{
+    background-color: #336600;
+    color: white;
+    font-size: 120%;
+    text-align: center;
+    height: 10%;
+}
+#left{
+    background-color: #AFC7C7;
+    width:40%;
+    height: 70%;
+    text-align: center;
+}
+#right{
+    background-color: #CFECEC;
+    width: 60%;
+    height: 70%;
+    font-size: 15px;
+}
+#stopka{
+    background-color: #669966;
+    color: white;
+    text-align: center;
+    font-size: 120%;
+    font-family: "Tahoma";
+    height: 10%;
+    padding: 10px;
+}
+table{
+        width: 300px;
+        border: 2px green solid;
+        text-align: center;
+}
+p{
+    text-align: center;
+    font-family: "Tahoma";
+    color: #003300;
+    font-size: 20px;
+    font-weight:600;
+}
+.nagl{
+    background-color: #006633;
+    color: white;
+}

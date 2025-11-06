@@ -1,0 +1,45 @@
+.weekday {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0d0038;
+    width: 500px;
+    margin: 1rem 0;
+}
+
+button{
+    height: 30px;
+    margin: 5px;
+    width: 70px;
+    color: #ff3333;
+    background-color: #0d0038;
+    font-weight: normal;
+    transition: 0.5s ease-out;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dayName{
+    color: #ff3333;
+    font-size: larger;
+}
+.previous {
+    background: #3357FF;
+    color:#6d001f;
+}
+.kw1 {
+    background: #C70039;
+    color: #6884ff;
+}
+.kw2 {
+    background: #FF5733 ;
+    color: whitesmoke;
+}
+.kw3 {
+    background: #cc0066;
+}
+.next {
+    background: #640064;
+}
+.za_15 {
+    background: #cc9900;
+}

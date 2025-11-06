@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../PlikiCSS/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <div id="pros">
+            Podaj długość pierwszego boku prostokąta<br>
+            <input type="text" id="in1"><br>
+            Podaj długość drugiego boku prostokąta<br>
+            <input type="text" id="in2"><br>
+            <button onclick="pole()">Oblicz pole</button><br>
+            <button onclick="obw()">Oblicz obwód</button><br>
+            <p id="p1"></p><br>
+            <p id="p2"></p><br>
+        </div>
+    </center>
+    <script>
+        function pole(){
+            let l1 = document.getElementById("in1").value;
+            let l2 = document.getElementById("in2").value;
+
+            if(l1 == 0 || l2 == 0 || l1 < 0 || l2 < 0){
+                alert("!!!Źle podana liczba!!!")
+            }else{
+                document.getElementById("p1").innerHTML = "Pole prostokąta o wymiarach " + l1 + " i " + l2 + " równa się " + l1 * l2;
+            }
+        }
+        function obw(){
+            let l1 = document.getElementById("in1").value;
+            let l2 = document.getElementById("in2").value;
+
+            if(l1 == 0 || l2 == 0 || l1 < 0 || l2 < 0){
+                alert("!!!Źle podana liczba!!!")
+            }else{
+                let o = (l1 * 2) + (l2 * 2);
+                document.getElementById("p2").innerHTML = "Obwód prostokąta o wymiarach " + l1 + " i " + l2 + " równa się " + o;
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    Podaj pierwszą długość prostokąta: <input type="number" id="a">
+    Podaj drugą długość prostokąta: <input type="number" id="b">
+    <button onclick="oblicz()">Oblicz</button>
+
+    <p id="wyniki"></p>
+
+
+    <script>
+        function oblicz(){
+            const prostokat = {
+            boka : Number(document.getElementById("a").value),
+            bokb : Number(document.getElementById("b").value),
+            zwrocDane: function(){
+               document.getElementById("wyniki").innerHTML =  "Pole: " + (this.boka * this.bokb) + "\nObwód: " + (this.boka * 2 + this.bokb * 2);
+               
+            }
+            
+        }
+        prostokat.zwrocDane();
+        }
+
+    </script>
+</body>
+</html>

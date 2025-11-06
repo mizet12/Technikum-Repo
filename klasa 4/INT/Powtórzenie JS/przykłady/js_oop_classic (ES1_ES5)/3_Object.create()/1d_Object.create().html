@@ -1,0 +1,62 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    metoda Object.create(). Wykorzystanie funkcji - konstruktora typu obiektowego.
+    Mechanizm dziedziczenia.
+
+    © Piotr Siewniak 2018-..., wersja: 22.II.2018 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 5.1 - metoda Object.create(). </title>
+    <meta charset="UTF-8">   
+</head>
+<body>   
+    <script> 
+        // Definicja obiektu prototypowego przy użyciu notacji literałowej:
+        const Auto = {
+            zwrocDane: function () {
+                return (this._marka + " " + this._model);
+            }
+        }
+        /* UWAGA
+         * Należy zwrócić uwagę, że obiekt prototypowy zawiera wyłącznie definicję metody!
+         * Obiekt prototypowy nie zawiera definicji żadnych właściwości!.
+         */
+                        
+        // Utworzenie obiektu auto1 na podstawie obiektu prototypowego
+        // oraz dodanie do tworzonego obiektu dwóch właściwości typu 'read only:
+        const auto1 = Object.create(Auto, {
+            '_marka': {value: 'Volkswagen'}, // domyślnie: writable: false
+            '_model': {value: 'Golf'} // domyślnie: writable: false
+        });
+        /* UWAGA
+         * Definicja właściwości _marka i _model jak powyżej, nie pozwala na
+         * ich późniejszą modyfikację (zmianę wartości)!
+		 */
+
+        // Wykorzystanie właściwości i metod obiektu auto1:
+        console.log("auto1._marka: ", auto1._marka);
+        console.log("auto1._model: ", auto1._model);
+        console.log("auto1.zwrocDane(): ", auto1.zwrocDane());
+
+
+
+        // Utworzenie obiektu auto2 na podstawie prototypu oraz dodanie do
+        // tworzonego obiektu dwóch właściwości typu 'writable':
+        const auto2 = Object.create(Auto, {
+            '_marka': { value: 'Opel', writable: true },
+            '_model': { value: 'Astra', writable: true }
+        });
+        console.log("auto2.zwrocDane(): ", auto2.zwrocDane());
+
+        // Zmiana wartości zapisanych we właściowściach obiektu auto2:
+        auto2._marka = "Ford";
+        auto2._model = "Focus";
+        console.log("auto2.zwrocDane(): ", auto2.zwrocDane());
+    </script>
+
+    <h1> Programowanie obiektowe w JavaScripcie - podejście klasyczne </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>
+

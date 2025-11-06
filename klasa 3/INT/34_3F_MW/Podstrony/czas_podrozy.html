@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../PlikiCSS/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <div id="pros">
+            Obliczanie Czasu<br>
+            <input type="text" id="in1" placeholder="Km/H">
+            <input type="text" id="in2" placeholder="Km"><br>
+            <button onclick="cza()">Oblicz</button><br>
+            <p id="p1"></p>
+            <hr>
+            Obliczanie predkosci<br>
+            <input type="text" id="in11" placeholder="km">
+            <input type="text" id="in22" placeholder="h"><br>
+            <select id="sel">
+                <option value="1">km i h</option>
+                <option value="2">m i s</option>
+            </select>
+            <button onclick="pre()">Oblicz</button><br>
+            <p id="p2"></p>
+        </div>
+    </center>
+    <script>
+        function cza(){
+            let l1 = document.getElementById("in1").value;
+            let l2 = document.getElementById("in2").value;
+
+            document.getElementById("p1").innerHTML = "Czas " + (l2 / l1) + "h";
+        }
+        function pre(){
+            let l1 = document.getElementById("in11").value;
+            let l2 = document.getElementById("in22").value;
+            if(document.getElementById("sel").value == 1){
+                document.getElementById("p2").innerHTML = "Predkosc " + (l1/l2) + "km/h"
+            }else if(document.getElementById("sel").value == 2){
+                document.getElementById("p2").innerHTML = "Predkosc " + (l1/l2) * 3,6 + "m/s"
+            }
+        }
+    </script>
+</body>
+</html>

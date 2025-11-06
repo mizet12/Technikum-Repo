@@ -1,0 +1,59 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE.
+    Metoda Object.create(). Wykorzystanie funkcji - konstruktora typu obiektowego.
+    Mechanizm dziedziczenia.
+
+    © Piotr Siewniak 2018-..., wersja: 22.II.2018 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 5.1 - metoda Object.create(). </title>
+    <meta charset="UTF-8">
+    <script>
+        // Definicja konstruktora obiektu typu Auto:
+        function Auto(marka, model) {
+            this._marka = marka;
+            this._model = model;
+        }
+        Auto.prototype = {
+            zwrocDane: function() {
+                return (this._marka + " " + this._model);
+            }
+        }
+    </script>
+</head>
+<body>   
+    <script>                 
+
+        const auto1 = Object.create(Auto);
+        auto1._marka = "Volkswagen";
+        auto1._model = "Golf";
+        // Prezentacja danych zapisanych w obiekcie:
+        console.log("auto1._marka: ", auto1._marka);
+        console.log("auto1._model: ", auto1._model);
+        /* UWAGA
+         * W przedstawiony powyżej sposób można tworzyć nowe obiekty bezpośrednio na podstawie konstruktora.
+         * Jednakże należy pamiętać o tym, że bazę dla metody Object.create() jest obiekt,
+         * a nie funkcja, którą stanowi konstruktor.
+         * Tym samym, zaprezentowany sposób można wykorzystywać jedynie w przypadku, 
+         * w którym konstruktor nie zawiera żadnych definicji metod, a jedynie deklaracje właściwości.
+         */
+        
+
+        // Utworzenie obiektu auto2:
+        const auto2 = Object.create(Auto.prototype);
+        /* UWAGA
+            Obiekt auto2 został utworzony nie na podstawie konstruktora Auto,
+            a przy wykorzystaniu jego prototypu Auto.prototype.
+         */
+        auto2._marka = "Opel";
+        auto2._model = "Astra";
+        // Wykorzystanie metody zdefiniowanej w prototypie, a nie w konstruktorze:
+        console.log("auto2.zwrocDane(): ", auto2.zwrocDane());
+    </script>
+
+    <h1> Programowanie obiektowe w JavaScripcie - podejście klasyczne </h1>
+    <h4 style="color: red;"> Przejdź do konsoli przeglądarki (F12) </h4>
+</body>
+</html>
+      

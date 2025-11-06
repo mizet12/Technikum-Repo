@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <select id="wybor">
+        <option value="2">nauczyciel</option>
+        <option value="3">wychowawca</option>
+        <option value="4">sekretarka</option>
+    </select>
+    <button onclick="decyzja()">Wybierz</button>
+    <div id="pole"></div>
+    <script>
+        function decyzja(){
+            if(document.getElementById("wybor").value == 2){
+                document.getElementById("pole").innerHTML = 'Podaj imie Nauczyciela<input type="text" id="name"> Podaj nazwisko nauczyciela<input type="text" id="surname"> Podaj jakiego przemiotu uczy<input type="text" id="subject"><button onclick="zapamietajnau()">Zapamiętaj</button> <p id="dane"></p>'
+            }else if(document.getElementById("wybor").value == 3){
+                document.getElementById("pole").innerHTML = 'Podaj imie Wychowawcy<input type="text" id="name"> Podaj nazwisko Wychowawcy<input type="text" id="surname"> Podaj jakiego przemiotu uczy<input type="text" id="subject"> Podaj której klasy jest wychowawcą<input type="text" id="class"><button onclick="zapamietajwych()">Zapamiętaj</button> <p id="dane"></p>'
+            }else if(document.getElementById("wybor").value == 4){
+                document.getElementById("pole").innerHTML = 'Podaj imie Sekretarki<input type="text" id="name"> Podaj nazwisko Sekretarki<input type="text" id="surname"> Podaj numer sali sekretariatu<input type="text" id="room"><button onclick="zapamietajsek()">Zapamiętaj</button> <p id="dane"></p>'
+            }
+        }
+       class Pracownik{
+        constructor(imie, nazwisko){
+            this._imie = imie,
+            this._nazwisko = nazwisko
+        }
+        DaneOsoby(){
+            return this._imie + " " + this._nazwisko
+        }
+       }
+
+       class nauczyciel extends Pracownik{
+        constructor(imie, nazwisko, przemiot){
+            super(imie, nazwisko)
+            this._przedmiot = przemiot
+        }
+        DaneOsoby(){
+            return super.DaneOsoby() + " przedmiot: " + this._przedmiot
+        }
+       }
+       class wychowawca extends nauczyciel{
+        constructor(imie, nazwisko, przemiot, klasa){
+            super(imie, nazwisko, przemiot)
+            this._klasa = klasa
+        }
+        DaneOsoby(){
+            return super.DaneOsoby() + " klasa: " + this._klasa
+        }
+       }
+       class sekretarka extends Pracownik{
+        constructor(imie, nazwisko, sala){
+            super(imie, nazwisko)
+            this._sala = sala
+        }
+        DaneOsoby(){
+            return super.DaneOsoby() + " sala sekretariatu: " + this._sala 
+        }
+       }
+
+
+       function zapamietajnau(){
+        nau = new nauczyciel(document.getElementById("name").value, document.getElementById("surname").value, document.getElementById("subject").value)
+        document.getElementById("dane").innerHTML = nau.DaneOsoby()
+       }
+       function zapamietajwych(){
+        wych = new wychowawca(document.getElementById("name").value, document.getElementById("surname").value, document.getElementById("subject").value, document.getElementById("class").value)
+        document.getElementById("dane").innerHTML = wych.DaneOsoby()
+       }
+       function zapamietajsek(){
+        sek = new sekretarka(document.getElementById("name").value, document.getElementById("surname").value, document.getElementById("room").value)
+        document.getElementById("dane").innerHTML = sek.DaneOsoby()
+       }
+
+    </script>
+</body>
+</html>

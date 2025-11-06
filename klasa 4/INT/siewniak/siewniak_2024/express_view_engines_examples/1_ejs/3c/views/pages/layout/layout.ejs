@@ -1,0 +1,37 @@
+<!--PLIK SZABLONU STRONY-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - EJS </title>
+    <meta charset="UTF-8">
+
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <!--UWAGA
+        Położenie pliku CSS zostało określone względem katalogu /public, który został zdefiniowany w aplikacji,
+        jako folder zawierający zasoby publiczne.
+    -->
+    <style type="text/css">
+        img {
+            width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <!-- Wstawienie zawartości nagłówka: -->
+            <%- include('../partials/header'); %>
+        </header>
+
+        <main class="main">
+            <!-- Wstawienie zawartości bloku głównego: -->
+            <%- include('../../content/content'); %>
+        </main>
+
+        <footer class="footer">
+            <!-- Wstawienie zawartości stopki: -->
+            <%- include('../partials/footer'); %>
+        </footer>
+    </div>
+</body>
+</html>

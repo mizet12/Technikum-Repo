@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../PlikiCSS/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <div id="pros">
+            Wybierz jednostke oraz podaj ilość<br>
+            <input type="number" id="liczba" placeholder="0"> 
+                <select id="sel">
+                    <option value="1">km</option>
+                    <option value="2">m</option>
+                    <option value="3">dm</option>
+                    <option value="4">cm</option>
+                    <option value="5">mm</option>
+                </select><br>
+                <button onclick="prze()">Przelicz</button>
+                <h2 id="h"></h2>
+        </div>
+    </center>
+    <script>
+        function prze(){
+            let l = document.getElementById("liczba").value;
+            let s = document.getElementById("sel").value;
+            if(s == 1){
+                document.getElementById("h").innerHTML = (l * 1000) + "m " + (l * 10000) + "dm " + (l * 100000) + "cm " + (l * 1000000) + "mm";
+            }else if(s == 2){
+                document.getElementById("h").innerHTML = (l / 1000) + "km " + (l * 10) + "dm " + (l * 100) + "cm " + (l * 1000) + "mm";
+            }else if(s == 3){
+                document.getElementById("h").innerHTML = (l / 10000) + "km " + (l / 10) + "m " + (l * 10) + "cm " + (l * 100) + "mm";
+            }else if(s == 4){
+                document.getElementById("h").innerHTML = (l / 100000) + "km " + (l / 100) + "m " + (l / 10) + "dm " + (l * 10) + "mm";
+            }else if(s == 5){
+                document.getElementById("h").innerHTML = (l / 1000000) + "km " + (l / 1000) + "m " + (l / 100) + "dm" + (l / 10) + "cm "
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    a<input type="text" id="a">
+    b<input type="text" id="b">
+    <button onclick="oblicz()">oblicz</button>
+    <script>
+        class prostokat{
+            constructor(){
+                this.a = document.getElementById("a").value,
+                this.b = document.getElementById("b").value
+            }
+        }
+
+        function oblicz(){
+            prost = new prostokat();
+            console.log(prost.a * prost.b)
+        }
+    </script>
+</body>
+</html>

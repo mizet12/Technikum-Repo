@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    Podaj pierwszą długość prostokąta: <input type="text" id="a">
+    Podaj drugą długość prostokąta: <input type="text" id="b">
+    <button onclick="oblicz()">Oblicz</button>
+
+    <p id="wyniki"></p>
+
+    <script>
+        
+        function NoDataError(message){
+            this.name = "NoData"
+            this.message = message
+        }
+        NoDataError.prototype = new Error();
+
+        function NoNumberError(message){
+            this.name = "NoNumber"
+            this.message = message
+        }
+        NoNumberError.prototype = new Error();
+
+        function InvalidNumberError(message){
+            this.name = "InvalidNumber"
+            this.message = message
+        }
+        InvalidNumberError.prototype = new Error()
+
+        function oblicz(){
+            let poprawnosc = true;
+            const prostokat = {
+            boka : Number(document.getElementById("a").value),
+            bokb : Number(document.getElementById("b").value),
+            zwrocDane: function(){
+               document.getElementById("wyniki").innerHTML =  "Pole: " + (this.boka * this.bokb) + "\nObwód: " + (this.boka * 2 + this.bokb * 2);
+               
+            }
+            
+        }
+            try{
+            if(typeof(prostokat.boka) == 'number' && typeof(prostokat.bokb) == 'number'){
+                prostokat.zwrocDane();
+            }else{
+                throw new NoNumberError("!Podaj liczby!") 
+                
+            }
+            if(prostokat.boka > 0 && prostokat.bokb > 0){
+                prostokat.zwrocDane();
+            }else{
+                throw new InvalidNumberError("!Podaj poprawny numer!")
+            }
+            
+            if(prostokat.boka !== 'undefind' && prostokat.bokb !== 'undefind'){
+                prostokat.zwrocDane();
+            }else{
+                throw new NoDataError("!Podaj Wartości!") 
+            }
+            }catch(err){
+                alert(err)
+            }
+
+            
+            
+           
+             
+        }
+    </script>
+</body>
+</html>

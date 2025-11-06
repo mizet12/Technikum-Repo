@@ -1,0 +1,74 @@
+﻿<!--JavaScript ES5:     wyrażenia funkcyjne (function expressions).
+    JavaScript ES6:     funkcje strzałkowe (arrow functions).
+
+    © Piotr Siewniak, wersja: 29.IX.2021 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> JAVASCRIPT: WYRAŻENIA FUNKCYJNE, FUNKCJE STRZAŁKOWE </title>
+    <meta charset="UTF-8">
+</head>
+<body>                    
+    <script>
+        /*  UWAGA
+            Funkcje strzałkowe w ES6 odpowiadają wyrażeniom funkcyjnym w ES5.
+
+            Funkcje strzałowe pozwalają na skrócony zapis wyrażenia funkcyjnego znanego z ES5.
+            Analogicznie jak wyrażenie funkcyjne, funkcje strzałkowe pozwalają na wyznaczenie wartości
+            określonego wyrażenia lub wykonanie zestawu instrukcji.
+
+            Programiści często używają zamiennie określeń "funkcja strzałkowa" i "funkcja lambda".
+            Większość programistów traktuje "funkcja lambda" po prostu jako "funkcje anononimowe".
+         */
+
+        // ES5 - wyrażenie funkcyjne (function expression):
+        const wB1 = function(x) {
+            return (x >= 0) ? x : -x; // obliczenie wartości bezwzględnej z liczby x
+        }
+        /* UWAGA
+            Funkcję anonimową skojarzono (przypisano) do zmiennej wB1.
+        */
+        console.log("wB1(-1) = %s", wB1(-1));
+
+
+        // ES6 - funkcja strzałkowa:
+        const wB2 = (x) => (x >= 0) ? x : -x; // obliczenie wartości bezwzględnej z liczby x
+        console.log("wB2(-2) = %s", wB2(-2));
+        /* UWAGA
+            Funkcja strzałkowa wB2 powyżej ma tylko jeden parametr wejściowy.
+
+            W ogólności, jeżeli funkcja strzałkowa posiada wyłącznie jeden parametr wejściowy,
+            wówczas można go nie ujmować w nawiasy okrągłe:
+                const wB2 = x => (x >= 0) ? x : -x;
+            
+            Można również wykorzystać nawiasy klamrowe z prawej strony strzałki.
+            W takim przypadku należy użyć słowa kluczowego return:
+                const wB2 = (x) => {
+                    return (x >= 0) ? x : -x;
+                }
+            lub
+                const wB3 = x => {
+                    return (x >= 0) ? x : -x;
+                }
+        */
+        
+        /* UWAGA
+            Składnia ogólna definicji funkcji strzałkowej z pojedynczym parametrem:
+                (pojedynczyParametr) => wyrażenie;
+            lub
+                pojedynczyParametr => wyrażenie;
+            lub
+                (pojedynczyParametr) => {
+                    zestaw instrukcji;
+                    return wyrażenie;
+                }
+            lub
+               pojedynczyParametr => {
+                    zestaw instrukcji;
+                    return wyrażenie;
+               }
+         */
+    </script>   
+</body>
+</html>

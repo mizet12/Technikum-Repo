@@ -1,0 +1,9 @@
+#root,
+.odliczanie{
+    height: 100%;
+}
+.odliczanie{
+    background-color: aquamarine;
+    max-width: 500px;
+    margin: 0 auto;
+}

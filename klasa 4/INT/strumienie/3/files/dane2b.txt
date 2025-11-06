@@ -1,0 +1,2 @@
+Tekst zapisany w pierwszej linii pliku tekstowego.
+Tekst zapisany w drugiej linii pliku tekstowego.

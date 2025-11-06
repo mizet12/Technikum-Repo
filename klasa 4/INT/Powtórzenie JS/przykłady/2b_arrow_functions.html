@@ -1,0 +1,60 @@
+﻿<!--JavaScript ES5:     wyrażenia funkcyjne (function expressions).
+    JavaScript ES6:     funkcje strzałkowe (arrow functions).
+
+    © Piotr Siewniak, wersja: 4.VIII.2021 r.
+-->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> JavaScript: function expressions, arrow functions </title>
+    <meta charset="UTF-8">
+</head>
+<body>                    
+    <script>
+        const bok1 = 1;
+        const bok2 = 2;
+
+        // JavaScript ES5 - wyrażenia funkcyjne:
+        const pole1P = function (a, b) {
+            return (a * b);
+        }
+        const obwod1P = function (a, b) {
+            return (2 * a + 2 * b);
+        }
+        /* UWAGA
+            Wyrażenia funkcyjne powyżej są zbudowane w oparciu o funkcje anonimowe.
+            Każda ze zdefiniowanych funkcji anonimowych posiada dwa parametry wejściowe: a i b.
+        */
+        console.log('pole1P(bok1, bok2) (ES5) = %s', pole1P(bok1, bok2));
+        console.log('obwod1P(bok1, bok2) (ES5) = %s', obwod1P(bok1, bok2));
+
+
+        // JavaScript ES6 - FUNKCJE STRZAŁKOWE
+        /* UWAGA
+            Jeżeli funkcja strzałkowa nie posiada żadnego parametru albo ma dwa lub więcej parametry,
+            wówczas należy je ująć w nawiasy okrągłe - jak poniżej.
+        */
+        /* UWAGA
+            Składnia ogólna jednoliniowej funkcji strzałkowej, w której obliczana jest 
+            wartość określonego wyrażenia:
+                WARIANT I:  (parametry) => wyrażenie;
+            lub
+                WARIANT II: (parametry) => { return wyrażenie; }
+         */
+
+        // Definicje funkcji strzałkowych:
+        // Wariant I:
+        const pole2P = (a, b) => a * b;
+
+        // Wariant II:
+        const obwod2P = (a, b) => {
+            return 2 * a + 2 * b
+        };
+
+        // Prezentacja wyników w konsoli przeglądarki:
+        console.log('pole2P(bok1, bok2) (ES6) = %s', pole2P(bok1, bok2));
+        console.log('obwod2P(bok1, bok2) (ES6) = %s', obwod2P(bok1, bok2));
+    </script>   
+</body>
+</html>

@@ -1,0 +1,33 @@
+doctype html
+html(lang="pl")
+    head
+        title Polska ciężarówka Jelcz
+        meta(charset="UTF-8")
+    body
+        // Dołączenie zewnętrznego pliku widoku:
+        include ./header/header.jade
+        // UWAGA
+        // Ścieżka do pliku z widokiem (podszablonem) została określona względem
+        // foldera views, jako roota dla plików widoków (szablonów).
+
+        h1 Polska ciężarówka marki #{auto.marka} #{auto.model} - lata 70-te XX wieku
+        // UWAGA
+        // Statyczna zawartość HTML została powyżej uzupełniona danymi dynamicznymi
+        // auto.marka i auto.model.
+        // Polecenie przesłania danych dynamicznych do renderowanego pliku widoku
+        // jest zawarte w skrypcie server.js.
+
+        h4 Jelcz 317 występował w odmianie bez turbosprężarki oraz z turbosprężarką.
+        h4 Dane techniczne
+        p Moc silnika:
+            // Zawartość statyczna wraz z daną dynamiczną dane.moc:
+            span=" " + data.moc + "KM"
+            // UWAGA
+            // Polecenie przesłania danych dynamicznych do renderowanego pliku widoku
+            // jest zawarte w skrypcie server.js.
+        p Moment obrotowy:
+            // Zawartość statyczna wraz z dynamiczną daną dane.moment:
+            span=" " + data.moment + "Nm"
+
+        // Dołączenie zewnętrznego pliku widoku:
+        include ./footer/footer.jade

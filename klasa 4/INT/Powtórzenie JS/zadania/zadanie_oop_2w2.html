@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    a<input type="text" id="a">
+    b<input type="text" id="b">
+    <button onclick="oblicz()">oblicz</button>
+    <script>
+        class prostokat{
+            constructor(){
+                this.a = document.getElementById("a").value,
+                this.b = document.getElementById("b").value
+            }
+        }
+
+        function oblicz(){
+            prost = new prostokat();
+            console.log(prost.a * prost.b)
+
+            try{
+                if(prost.a <= 0 || prost.b <= 0){
+                throw new InvalidNumberError("number")
+            }
+            if(!typeof(prost.a) == "number" || !typeof(prost.b) == "number"){
+                throw new NoNumberError("number")
+            }
+            if(prost.a == null || prost.b == null){
+                throw new NoDataError("number")
+            }
+            }catch(err){
+                console.log(err)
+            }
+        }
+
+        class NoDataError extends Error {
+        constructor(message) {
+            super(message);
+            this.name = "number";
+        }
+        }
+        class NotNumberError extends Error {
+        constructor(message) {
+            super(message);
+            this.name = "number";
+        }
+        }
+        class InvalidNumberError extends Error {
+        constructor(message) {
+            super(message);
+            this.name = "number";
+        }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #pole{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <select id="wybor">
+        <option value="1">prostokat</option>
+        <option value="2">prostopadloscian</option>
+    </select>
+    <button onclick="decyzja()">Wybierz</button>
+    <div id="pole"></div>
+    <script>
+        function decyzja(){
+            if(document.getElementById("wybor").value == 1){
+                document.getElementById("pole").innerHTML = 'Podaj pierwszy bok prostokąta: <input type="text" id="a"> Podaj drugi bok prostokąta: <input type="text" id="b"> <button onclick="obliczprost()">Oblicz</button> <p id="wyniki"></p>'
+            }else{
+                document.getElementById("pole").innerHTML = 'Podaj pierwszy bok prostopadloscianu: <input type="text" id="a"> Podaj drugi bok prostopadloscianu: <input type="text" id="b"> Podaj trzeci bok prostopadloscianu: <input type="text" id="c"> <button onclick="obliczpadlo()">Oblicz</button> <p id="wyniki"></p>'
+            }
+        }
+
+        class prostokat{
+            constructor(){
+                this.a = Number(document.getElementById("a").value),
+                this.b = Number(document.getElementById("b").value)
+            }
+        }
+        class prostopadloscian{
+            constructor(){
+                this.a = Number(document.getElementById("a").value),
+                this.b = Number(document.getElementById("b").value),
+                this.c = Number(document.getElementById("c").value)
+            }
+        }
+
+        function obliczprost(){
+            let poprawnosc = false;
+            prost = new prostokat();
+                document.getElementById("wyniki").innerHTML =  "Pole: " + (prost.a * prost.b) + "\nObwód: " + (prost.a * 2 + prost.b * 2);
+        }
+            
+        function obliczpadlo(){
+            prosto = new prostopadloscian()
+                document.getElementById("wyniki").innerHTML =  "Pole Powierzchni całkowitej: " + [(prosto.a * prosto.b) + (prosto.a * prosto.c) + (prosto.b + prosto.c)] + "\nObjętość: " + (prosto.a * prosto.b * prosto.c) + "\nSuma wszystkich krawędzi" + [(prosto.a * 4) + (prosto.b * 4) + (prosto.c * 4)]; 
+        }
+    </script>
+
+</body>
+</html>

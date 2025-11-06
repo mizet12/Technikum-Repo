@@ -1,0 +1,34 @@
+// PLIK ZAWIERAJĄCY TREŚĆ (ZAWARTOŚĆ) STRONY
+// Dodanie podstawowego szablonu strony:
+extend ./templates/layout
+// UWAGA
+// Dyrektywa extend stanowi odwrotność dyrektywy include.
+// Pozwala ona na przesłanie do pliku layout bloku z treścią (block content).
+
+block content
+    // Do zawartości nagłówka h1 przesyłane są dane dynamiczne:
+    h1 Polska ciężarówka marki #{auto.marka} #{auto.model} - lata 70-te XX wieku
+
+    h4 Jelcz 317 występował w odmianie bez turbosprężarki oraz z turbosprężarką.
+    img(src="./images/jelcz.jpg", alt="Jelcz 317D")
+    br
+    small(style="font-style: Italic; color: black;").
+        Jelcz 317D
+        (źródło: Zdzisław Podbielski. Samochody ciężarowe, specjalne i autobusy.
+        Instytut Wydawniczy "NASZA KSIĘGARNIA", Warszawa 1988.)
+    br
+    h4 Dane techniczne:
+    p Moc:
+        // Zawartość statyczna wraz z danymi dynamicznymi:
+        span=" " + data.moc + "KM"
+    p Moment obrotowy:
+        // Zawartość statyczna wraz z danymi dynamicznymi:
+        span=" " + data.moment + "Nm"
+    // Skrypt wbudowany:
+    script.
+        const jelcz317DMoc = 240;
+        const jelcz317DMoment = 883;
+        console.log("Dane Jelcza 317D:");
+        console.log("Moc: ", jelcz317DMoc, "KM");
+        console.log("Moment obrotowy: ", jelcz317DMoment, "Nm");
+

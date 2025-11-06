@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\CSS\style.css">
+    <link rel="js" href="..\Skrypty\script.js">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="header"><h2><p id="p"></p></h2></div>
+    <div id="main">                 
+        <div id="left">
+        Menu<table>
+            <tr>
+                <td><a href="..\Strona\index.html">Strona główna</a></td>
+                </tr><tr>
+                <td><a href="..\podstrony\grafika.html">grafika</a> </td>
+                </tr><tr>
+                <td><a href="..\podstrony\tabela.html">Tabela</a></td>
+            </tr>
+        </table></div>
+        <div id="middle">Podaj nazwe strony<input type="text" id="nowa"> <button onclick="zmien()">zmień</button>
+        </div>
+        <div id="right"></div>
+    </div>
+    <div id="footer"><p id="data"></p> <h2><p id="test">x: y:</p></h2></div>
+    <script>
+        let p = document.getElementById("p");
+        p.innerHTML = "Nazwa";
+        let d = document.getElementById("data");
+        let t = document.getElementById("test");
+        const regex = /^([a-z]|[A-Z]|\#){2,}\w/;
+
+        function printMousePos(event) {
+  t.innerHTML =
+    " X: " + event.clientX +
+    "Y: " + event.clientY;
+}
+document.addEventListener("click", printMousePos);
+
+
+
+        setInterval(myTimer, 1000);
+
+        function myTimer() {
+            const date = new Date();
+            d.innerHTML = date;
+        }     
+        function zmien(){
+            let nowa = document.getElementById("nowa").value;
+            if(regex.test(nowa)){
+                p.innerHTML = nowa;
+            }
+            
+        }
+    </script>
+</body>
+</html>

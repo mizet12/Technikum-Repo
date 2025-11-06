@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1638202829 source:c:\users\komputer pc\desktop\szko³a\siewniak\naglowkowe\zad2\main.cpp
+	<iostream>
+	"header.h"
+
+1638202819 c:\users\komputer pc\desktop\szko³a\siewniak\naglowkowe\zad2\header.h
+
+1638202800 source:c:\users\komputer pc\desktop\szko³a\siewniak\naglowkowe\zad2\pola.cpp
+	"header.h"
+	<math.h>
+	<iostream>
+

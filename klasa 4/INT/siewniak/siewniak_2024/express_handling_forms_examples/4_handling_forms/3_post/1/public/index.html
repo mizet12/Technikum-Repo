@@ -1,0 +1,30 @@
+<!--NODE EXPRESS - OBSŁUGA FORMULARZY
+    Metoda HTTP POST.
+
+    © Piotr Siewniak, wersja: 22.II.2022 r.
+-->
+
+<!--UWAGA
+    Przed uruchomieniem tego kodu należy najpierw uruchomić serwera aplikacji (app.js).
+-->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - HTTP POST </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h4> Podaj dane samochodu: </h4>
+    <form action="http://127.0.0.1:8090/auto" method="POST">
+        <!--Dane tekstowe zostaną przesłane za pomocą metody HTTP POST na adres URL:
+            http://127.0.0.1:PORT/auto
+        -->
+        Marka <input type="text" name="marka">  <br />
+        Model <input type="text" name="model"> <br />
+        Numer rejestracyjny <input type="text" name="nr_rejestracyjny"> <br />
+
+        <input type="submit" value="Wyślij">
+    </form>
+</body>
+</html>

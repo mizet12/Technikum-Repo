@@ -1,0 +1,3 @@
+ciag: 2 97 83
+Najmniej252
+Najwiecej252

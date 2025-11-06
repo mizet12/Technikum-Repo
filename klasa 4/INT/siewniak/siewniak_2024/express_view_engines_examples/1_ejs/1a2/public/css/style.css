@@ -1,0 +1,30 @@
+.container {
+    font-family: "Century Gothic";
+    text-align: center;
+    width: 1024px;
+    margin: auto;
+}
+
+.container > * {
+    padding: 15px;
+}
+
+.header, .footer {
+    background-color: gray;
+    color: white;
+}
+.main {
+    background-color: lightgrey;
+    text-align: justify;
+}
+p {
+    text-align: justify;
+}
+small {
+    font-style: italic;
+}
+
+.image_title {
+    font-style: normal;
+    font-weight: bold;
+}

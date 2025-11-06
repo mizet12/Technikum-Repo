@@ -1,0 +1,64 @@
+// UWAGA
+// Jade (Pug) jest wrażliwy na białe spacje (whitespaces).
+//
+// Najważniejsze zasady pisania kodu szablonu w Jade są następujące:
+//
+// Jade traktuje pierwsze słowo każdej linii jako znacznik HTML
+// Kolejne słowa w takim wierszu są traktowane przez Jade jako tekst
+// zawarty wewnątrz znacznika.
+//
+// W Jade nie stosuje się tagów zamykających.
+//
+// Znaczniki można zagnieżdżać, czyli budować drzewa HTML.
+// W takim przypadku, zamiast tagów zamykających należy stosować wcięcia.
+// Wspomniane wcięcia realizuje się albo za pomocą tabulatorów, albo spacji z tym,
+// że nie można tego mieszać.
+//
+// Atrubuty znaczników są pisane w nawiasach okrągłych.
+// Jeśli jest ich kilka, to należy je oddzielić od siebie przecinkami.
+//
+// Używanie identyfikatorów (id) i klas (class) można uprościć za pomocą składni:
+// znacznik#identyfikator, znacznik.klasa, znacznik#identyfikator.klasa1.klasa2 itp.
+//
+// Dodanie kropki po nazwie znacznika (np. p.) oznacza, że Jade będzie traktował ​​
+// wszystko wewnątrz tego znacznika jako zwykły tekst.
+// Innymi słowy, dodanie kropki po nazwie znacznika powoduje, że Jade nie traktuje
+// następnego słowa (słów) jako nazwy znacznika/znaczników.
+//
+// Wartość zmiennej JS można dołączyć za pomocą konstrukcji znacznik= zmienna
+// Można również wstrzyknąć wartość JS za pomocą konstrukcji #{zmienna}
+//
+// POZOSTAŁE ZASADY ZOSTAŁY PRZEDSTAWIONE W NASTĘPNYCH PRZYKŁADACH
+
+doctype html
+// Znacznik z atrybutem lang:
+html(lang="pl")
+    head
+        title Polska ciężarówka Jelcz
+        // Znacznik z atrybutem:
+        meta(charset="UTF-8")
+    body
+        div
+            // Znacznik z atrybutem style:
+            h1(style="font-family: Consolas; color: blue;") Polska ciężarówka marki Jelcz w latach 70-tych XX wieku
+            h4 Rodzina Jelcz 300
+            ul
+                li 315
+                li 316
+                // Znacznik z atrybutem style:
+                li(style="color: red; font-family: Consolas;") 317
+            // Znacznik z trzema atrybutami HTML:
+            img(src="./images/jelcz.jpg", alt="Jelcz 317D", width=640)
+            br
+            // Znacznik z atrybutem style, po którym występuje kropka (.):
+            small(style="font-style: Italic;").
+                Jelcz 317D
+                (źródło: Zdzisław Podbielski. Samochody ciężarowe, specjalne i autobusy.
+                Instytut Wydawniczy "NASZA KSIĘGARNIA", Warszawa 1988.)
+            // UWAGA
+            // Zawartość występująca po kropce będzie rozpoznawana przez Jade jako zwykły tekst.
+            p.
+                Jelcz 317 to ciągnik siodłowy. Bez turbosprężarki osiągał
+                moc 200KM (moment obrotowy 743Nm), a z turbo - 240KM (883Nm).
+            p Dla porównania: radziecki Kamaz 5410: 210KM (637Nm).
+

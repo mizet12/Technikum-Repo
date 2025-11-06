@@ -1,0 +1,16 @@
+doctype html
+html(lang="pl")
+    head
+        title Node Jade Template Engine
+        meta(charset="UTF-8")
+    body
+        h1 Lista samochodów VW Golf
+        h4 marka model, rok produkcji, cena
+        ul
+            each item in auto_list
+                // UWAGA
+                // Dana auto_list stanowi daną dynamiczną. Została ona przesłana od aplikacji
+                // do renderowanego pliku widoku (czyli index.jade).
+                // Dane zawarte w zmiennej auto_list zostały odczytane wcześniej z bazy danych MySQL.
+                li(style="list-style: none")= item.marka + ' ' + item.model + ', ' + item.rok_produkcji + ', ' + item.cena
+

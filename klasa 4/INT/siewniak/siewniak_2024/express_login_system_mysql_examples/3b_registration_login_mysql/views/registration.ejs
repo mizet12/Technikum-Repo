@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Formularz rejestracyjny</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h2> Formularz rejestracyjny </h2>
+
+    <form method="post" action="register">
+        <input type="text" placeholder="Nazwa użytkownika" name="username"> <br />
+        <input type="password" placeholder="Hasło" name="password"> <br />
+
+        <button type="submit"> Zarejestruj </button> <br />
+    </form>
+
+    <!-- Wstrzyknięcie na stronę kodu JS: -->
+    <h4> <%=(typeof alertMsg!='undefined')? alertMsg:''%> </h4>
+</body>
+</html>

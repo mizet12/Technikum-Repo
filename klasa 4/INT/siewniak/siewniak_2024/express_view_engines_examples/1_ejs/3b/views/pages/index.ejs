@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Node Express - EJS </title>
+    <meta charset="UTF-8">
+
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        img {
+            width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <%- include('../partials/header', {years: 70}); %>
+        </header>
+        <!--UWAGA
+            Do pliku widoku header.ejs (czyli pliku podszablonu) jest przesyłana
+            dana dynamiczna years o wartości 70.
+        -->
+        <main class="main">
+            <h3> Ciężkie wywrotki 3-osiowe: </h3>
+            <ul>
+                <% list.forEach((item) => { %>
+                <li><%=item.marka%> <%=item.model%></li>
+                <% }); %>
+            </ul>
+            <!--UWAGA
+                Powyżej została wykorzystana pętla JS forEach() oraz dana dynamiczne list
+                przesłana z serwera aplikacji.
+            -->
+            <img src="./images/jelcz.jpg" alt="Jelcz W640" /> <br />
+            <small>
+                <span class="image_title">Jelcz W640 JS</span>
+                (źródło: Zdzisław Podbielski. Samochody ciężarowe, specjalne i autobusy.
+                Instytut Wydawniczy "NASZA KSIĘGARNIA", Warszawa 1988)
+            </small> <br />
+        </main>
+        <footer class="footer">
+            <%- include('../partials/footer', {year: 2022}); %>
+        </footer>
+        <!--UWAGA
+            Do pliku widoku header.ejs (czyli pliku podszablonu) jest przesyłana
+            dana dynamiczna year o wartości 2022.
+        -->
+    </div>
+</body>
+</html>

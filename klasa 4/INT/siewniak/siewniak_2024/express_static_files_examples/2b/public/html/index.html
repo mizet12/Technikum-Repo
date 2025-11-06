@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> Web Page </title>
+    <meta charset="UTF-8">
+
+    <!--Wykorzystanie zewnętrznego pliku ze stylami CSS: -->
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <!--UWAGA
+        Ścieżka do pliku .CSS została określona jako względna w odniesieniu do roota
+        dla plików statycznych w aplikacji node, czyli względem katalogu public.
+    -->
+</head>
+<body>
+    <h1> Polska ciężarówka JELCZ W640-825 w latach 70-tych XX wieku </h1>
+
+    <!--Wykorzystanie obrazka (JPG): -->
+    <img src="./images/jelcz.jpg" alt="Jelcz"> <br />
+    <!--UWAGA
+         Ścieżka do pliku .JPG została określona jako względna w odniesieniu do roota
+         dla plików statycznych w aplikacji node, czyli względem katalogu public.
+     -->
+    <small>
+        Źródło: Zdzisław Podbielski. <i> Samochody ciężarowe, specjalne i autobusy. </i>
+        Instytut Wydawniczy "NASZA KSIĄGARNIA", Warszawa 1988.
+    </small> <br />
+
+    <!--Wykorzystanie zewnętrznego skryptu JavaScript: -->
+    <h4 id="h4"></h4>
+    <script src="./js/script.js"></script>
+    <!--UWAGA
+        Ścieżka do pliku .JS została określona jako względna w odniesieniu do roota
+        dla plików statycznych w aplikacji node, czyli względem katalogu public.
+    -->
+</body>
+</html>

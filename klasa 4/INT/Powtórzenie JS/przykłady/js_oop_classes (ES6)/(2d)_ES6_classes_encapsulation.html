@@ -1,0 +1,71 @@
+﻿<!--ECMAScript 2015 (ES6). Programowanie obiektowe.  
+
+    Hermetyzacja, inaczej: enkapsulacja (encapsulation).
+    Wykorzystanie samodzielnie zdefiniowanych getterów i setterów.
+    
+    © 2017-2019 Piotr Siewniak, wersja: 14.XI.2019 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 6 - hermetyzacja (enkapsulacja). </title>
+    <meta charset="UTF-8">
+</head>
+<body>   
+    <script>
+        /* UWAGA
+         * Jak wynika z poprzednich przykładów, JAVASCRIPT NIE WSPIERA W SPOSÓB NATYWNY
+         * (NATURALNY) ENKAPSULACJI!
+         * Nie ma możliwości zadeklarowania danej właściwości jako prywatnej (private),
+         * czyli dostępnej tylko w obrębie klasy, w której została zadeklarowana.
+         */
+
+        let osoba1 = {
+            _imie: '',
+            _nazwisko: ''
+        };
+
+        Object.defineProperty(osoba1, 'imie', {
+            get: function() {
+                return this._imie;
+            },
+            set: function(value) {
+                if (typeof(value) == "string") this._imie = value;
+                    else this._imie = "error!";
+            }
+        });
+        Object.defineProperty(osoba1, 'nazwisko', {
+            get: function() {
+                return this._nazwisko;
+            },
+            set: function(value) {
+                if (typeof(value) == "string") this._nazwisko = value;
+                else this._imie = "error!";
+            }
+        });
+
+
+        osoba1.imie = 5; // Celowo błędna wartość!
+        osoba1.nazwisko = "Siewniak";
+
+
+        console.log(osoba1);
+
+        console.log("Imię: %s, nazwisko: %s",
+            osoba1.imie, // error!
+            osoba1.nazwisko //Siewniak
+        );
+
+
+        // Zmiana wartości właściwości _imie:
+        osoba1.imie = 'Piotrek'; // wartość prawidłowa
+        console.log("Imię: %s, nazwisko: %s",
+            osoba1.imie, // error!
+            osoba1.nazwisko //Siewniak
+        );
+    </script>
+
+    <h1> JavaScript - programowanie obiektowe </h1>
+    <h4 style="color: red;"> Uwaga! Przejdź do konsoli przeglądarki (F12) ... </h4>
+</body>
+</html>

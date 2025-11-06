@@ -1,0 +1,76 @@
+﻿<!--JAVASCRIPT - PROGRAMOWANIE OBIEKTOWE
+    Mechanizm dziedziczenia. Podejście klasyczne: wykorzystanie prototypów.
+
+    © Piotr Siewniak, wersja: 16.II.2018 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> ECMAScript 1: mechanizm dziedziczenia - podejście klasyczne. </title>
+    <meta charset="UTF-8">
+    <script> 
+        // Definicja konstruktora typu obiektowego Pracownik:
+        const Pracownik = function (imie, nazwisko) { // wyrażenie funkcyjne
+            this._imie = imie;
+            this._nazwisko = nazwisko;
+            this._plec = null;
+
+            // Deklaracja prototypu właściwości:
+            this._wiek = prototypWlasciwosci;
+            /* UWAGA
+                Właściwość _przedmiot powinna zostać zdefiniowana (zainicjalizowana)
+                w innym miejscu, mponieważ tutaj określono jedynie jej prototyp.
+             */
+
+            // Deklaracja prototypu metody instancyjnej:
+            this.zwrocDanePracownika = prototypFunkcji;
+            /* UWAGA
+                Metoda instancyjna zwrocDanePracownika() powinna zostać
+                zdefiniowana w innym miejscu, ponieważ tutaj określono jedynie
+                jej prototyp.
+             */
+        }        
+    </script>
+</head>
+<body>   
+    <script>
+        // Definicja - inicjalizacja właściwości prototypWlasciwosci skojarzonej z typem Pracownik:
+        const prototypWlasciwosci = 50;
+
+        // Definicja funkcji prototypFunkcji() skojatrzonej z typem Pracownik:
+        function prototypFunkcji() {
+            return (this._imie + " " + this._nazwisko + ' ' + this._plec + ' ' + this._wiek);
+        }
+
+        // Dodanie nowych właściwości do prototypu typu obiektowego Pracownik:
+        Pracownik.prototype._przedmiot = "informatyka";
+        Pracownik.prototype._staz_pracy = null;
+
+
+        // Dodanie nowej metody do prototypu typu obiektowego Pracownik:
+        Pracownik.prototype.zwrocDaneNauczyciela = function () {
+            return (this._imie + " " +
+                    this._nazwisko + ", " +
+                    this._przedmiot + ", " +
+                    this._staz_pracy);
+        }
+        
+        // Utworzenie nowego obiektu typu Pracownik poprzez wywołanie konstruktora:
+        const nauczyciel = new Pracownik();
+
+        // Inicjalizacja właściwości obiektu nauczyciel:
+        nauczyciel._imie = "Jan";
+        nauczyciel._nazwisko = "Kowalski"
+        nauczyciel._plec = 'm';
+        nauczyciel._staz_pracy = 10;
+
+        // Wyświetlenie zawartości obiektu nauczyciel:
+        console.log("nauczyciel:", nauczyciel);
+
+        // Wykorzystanie metody zdefiniowanej w type Pracownik:
+        console.log("nauczyciel.zwrocDanePracownika():", nauczyciel.zwrocDanePracownika());
+        // Wykorzystanie metody zdefiniowanej w prototypie typu Pracownik:
+        console.log("nauczyciel.zwrocDaneNauczyciela():", nauczyciel.zwrocDaneNauczyciela());
+    </script>
+</body>
+</html>

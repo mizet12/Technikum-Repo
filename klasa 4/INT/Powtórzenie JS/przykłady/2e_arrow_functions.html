@@ -1,0 +1,38 @@
+﻿<!--JavaScript ES6
+    Funkcje strzałkowe jako wyrażenia.
+
+    © Piotr Siewniak, wersja: 5.VIII.2021 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> JAVASCRIPT: FUNKCJE STRZAŁKOWE </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    const x = -1;
+
+    // FUNKCJE STRZAŁKOWE JAKO WYRAŻENIA
+    /* UWAGA
+        Funkcje strzałkowe można utworzyć dynamicznie (jak poniżej) i wykorzystać je jako wyrażenia.
+     */
+    // Utworzenie funkcji strzałkowej wB1():
+    const wB1 = (x >= 0) ? () => x : () => -x;
+    // Wywołanie funkcji wB1():
+    console.log("wB1(x) = %s", wB1(x));
+
+    // Utworzenie funkcji strzałkowej wB2():
+    const wB2 = (x >= 0) ?
+        () => {return x} :
+        () => {return -x};
+    console.log("wB2(x) = %s", wB2(x));
+
+    // Utworzenie funkcji strzałkowej wB3():
+    const wB3 = (x >= 0) ?
+        () => console.log("Wartość bezwzględna = %s", x) :
+        () => console.log("Wartość bezwzględna = %s", -x);
+    wB3();
+</script>
+</body>
+</html>

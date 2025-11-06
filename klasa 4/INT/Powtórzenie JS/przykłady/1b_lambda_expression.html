@@ -1,0 +1,70 @@
+﻿<!--JavaScript ES5:     wyrażenia lambda (lambda expressions).
+
+    © Piotr Siewniak, wersja: 29.IX.2021 r.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title> JAVASCRIPT: WYRAŻENIA LAMBDA </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        /* UWAGA
+            Wielu programistów traktuje funkcje (wyrażenia) lambda jako funkcje anonimowe
+            definiowane za pomocą wyrażeń funkcyjnych. Jednakże nie wszystkie funkcje lambda
+            są funkcjami anonimowymi i odwrotnie.
+
+            Z definicji, funkcja anonimowa to funkcja bez nazwy.
+            Funkcję anonimową definiuje się za pomocą wyrażeń funkcyjnych.
+
+            Z drugiej strony, funkcja lambda to pewnego rodzaju abstrakcja (np. wyrażenie), 
+            które umożliwia przekazywanie funkcji jako danej.
+            Oznacza to, że dana funkcja może być przekazana do innej funkcji jako jej parametr wejściowy (argument),
+            jak również może być zwrócona przez inną funkcję do jej otoczenia.
+
+            Najważniejszą różnicą, która w JS odróżnia funkcje lambda od funkcji anonimowych
+            jet to, że funkcję lambda można nazwać.
+
+            Wyrażenia lambda używa się głównie w programowaniu obiektowym, gdzie stanowią one
+            uproszczoną notację do definiowania i używania anonimowych obiektów funkcyjnych.
+        */
+
+        // Deklaracja funkcji z parametrem funkcyjnym:
+        function srednia(tablica, funkcja) {
+            return funkcja(tablica);
+        }
+        /* UWAGA            
+            Funkcja funkcja() jest przekazazywana do funkcji srednia() jak zwykła dana.
+            Innymi słowy, funkcja funkcja() stanowi parametr wejściowy funkcji srednia().
+
+            Funkcje, które stanowią parametry/argumenty innych funkcji nazywa się funkcjami zwrotnymi
+            lub inaczej: funkcjami wywołania zwrotnego (callback functions).
+            TEMATYKA FUNKCJI ZWROTNYCH JEST OMAWIANA OSOBNO!
+        */
+
+        function srednia_rzeczywista(tablica) {
+            let s = 0;
+            for (let i = 0; i < 4; i++) {
+                s = s + tablica[i];
+            }
+            return s/3;
+        }
+
+        function srednia_calkowita(tablica) {
+            let s = 0;
+            for (let i = 0; i < 4; i++) {
+                s = s + tablica[i];
+            }
+            return Math.round(s / 3);
+        }
+
+        // Wykaz ocen semestralnych studenta:
+        const t = [3, 4, 4, 3];
+
+        // Wywołanie funkcji srednia z argumentami funkcyjnymi:
+        console.log("srednia(t, srednia_rzeczywista) = ", srednia(t, srednia_rzeczywista));
+        console.log("srednia(t, srednia_calkowita) = ", srednia(t, srednia_calkowita));
+    </script>
+</body>
+</html>
